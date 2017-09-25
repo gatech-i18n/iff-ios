@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -204,7 +204,6 @@
         <!--Register View Controller-->
         <scene sceneID="W64-2n-43H">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yYe-D6-PHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="VyG-ba-fAr" customClass="RegisterViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="yZf-kk-g6D"/>
@@ -300,6 +299,7 @@
                                     </attributedString>
                                 </state>
                                 <connections>
+                                    <action selector="handleRegister:" destination="VyG-ba-fAr" eventType="touchUpInside" id="9bb-st-bL9"/>
                                     <segue destination="m1X-Go-imH" kind="show" identifier="afterRegister" id="UQe-G2-3lg"/>
                                 </connections>
                             </button>
@@ -324,8 +324,11 @@
                     </view>
                     <connections>
                         <outlet property="userEmailField" destination="soe-9C-WhX" id="gLq-hQ-IOs"/>
+                        <outlet property="userPassword" destination="fbg-Jk-hag" id="Tom-5c-NoH"/>
+                        <outlet property="userPasswordConfirm" destination="3kk-aZ-JAI" id="dmw-MI-I22"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yYe-D6-PHu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-834" y="396"/>
         </scene>
@@ -335,7 +338,7 @@
         <image name="GGLoginImage" width="889" height="889"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xBg-Lq-13V"/>
         <segue reference="UQe-G2-3lg"/>
+        <segue reference="T3c-KS-uww"/>
     </inferredMetricsTieBreakers>
 </document>

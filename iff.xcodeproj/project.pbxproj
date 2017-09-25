@@ -7,6 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		323461281F7882BA00AEDC30 /* AWSCore in Resources */ = {isa = PBXBuildFile; fileRef = 323460FA1F7882B800AEDC30 /* AWSCore */; };
+		323461291F7882BA00AEDC30 /* AWSS3 in Resources */ = {isa = PBXBuildFile; fileRef = 323460FB1F7882B800AEDC30 /* AWSS3 */; };
+		3234612A1F7882BA00AEDC30 /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 323460FC1F7882B800AEDC30 /* AWSCognito */; };
+		3234612B1F7882BA00AEDC30 /* Target Support Files in Resources */ = {isa = PBXBuildFile; fileRef = 323460FD1F7882B800AEDC30 /* Target Support Files */; };
+		3234612C1F7882BA00AEDC30 /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 323460FE1F7882B800AEDC30 /* Headers */; };
+		3234612D1F7882BA00AEDC30 /* AWSSimpleDB in Resources */ = {isa = PBXBuildFile; fileRef = 323460FF1F7882B900AEDC30 /* AWSSimpleDB */; };
+		3234612E1F7882BA00AEDC30 /* AWSSQS in Resources */ = {isa = PBXBuildFile; fileRef = 323461001F7882B900AEDC30 /* AWSSQS */; };
+		3234612F1F7882BA00AEDC30 /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = 323461011F7882B900AEDC30 /* Manifest.lock */; };
+		323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */ = {isa = PBXBuildFile; fileRef = 323461021F7882B900AEDC30 /* AWSDynamoDB */; };
+		323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */; };
+		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
+		323461331F7882BA00AEDC30 /* AWSSNS in Resources */ = {isa = PBXBuildFile; fileRef = 323461051F7882B900AEDC30 /* AWSSNS */; };
+		323461341F7882BA00AEDC30 /* AWSSES in Resources */ = {isa = PBXBuildFile; fileRef = 323461271F7882B900AEDC30 /* AWSSES */; };
 		32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A61F3D1F639DFE0026310B /* DashboardViewController.m */; };
 		32BAD4331F5705B3009BC21E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4321F5705B3009BC21E /* main.m */; };
 		32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4351F5705B3009BC21E /* AppDelegate.m */; };
@@ -15,9 +28,98 @@
 		32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43D1F5705B3009BC21E /* Assets.xcassets */; };
 		32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43F1F5705B3009BC21E /* LaunchScreen.storyboard */; };
 		32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */; };
+		57DA7F51660F0EBF80FC574C /* libPods-iff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 755F94C9EF1AA2EF6F92058B /* libPods-iff.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		323461131F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 24A645E2973D1BC8BD0B6EB932197648;
+			remoteInfo = AWSCognito;
+		};
+		323461151F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 96B87411A5ECFB685258F210E1AFE582;
+			remoteInfo = AWSCognitoIdentityProvider;
+		};
+		323461171F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 351D4EBDA3305C79C300D5EF9FDAE133;
+			remoteInfo = AWSCore;
+		};
+		323461191F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D10111B5C61715CE2EE43E1C15F55231;
+			remoteInfo = AWSDynamoDB;
+		};
+		3234611B1F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9ED863E40ED924020E1882933C9D48E6;
+			remoteInfo = AWSS3;
+		};
+		3234611D1F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 43B592C8874EF0D532F6939B272BA197;
+			remoteInfo = AWSSES;
+		};
+		3234611F1F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 05CBF56AA587D18CF8CE7A3BCAFA584B;
+			remoteInfo = AWSSimpleDB;
+		};
+		323461211F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 28D3D5B80F4A7650D5697ACCA9EAB888;
+			remoteInfo = AWSSNS;
+		};
+		323461231F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 94D925056282EA03CA016AC270683A34;
+			remoteInfo = AWSSQS;
+		};
+		323461251F7882B900AEDC30 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7F95DEEEB5BD499E40EBF505A7286DC8;
+			remoteInfo = "Pods-iff";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		1F6295F87E7E38921F1E8F69 /* Pods-iff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iff.release.xcconfig"; path = "Pods/Target Support Files/Pods-iff/Pods-iff.release.xcconfig"; sourceTree = "<group>"; };
+		323460FA1F7882B800AEDC30 /* AWSCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCore; path = Pods/AWSCore; sourceTree = "<group>"; };
+		323460FB1F7882B800AEDC30 /* AWSS3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSS3; path = Pods/AWSS3; sourceTree = "<group>"; };
+		323460FC1F7882B800AEDC30 /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSCognito; sourceTree = "<group>"; };
+		323460FD1F7882B800AEDC30 /* Target Support Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Target Support Files"; path = "Pods/Target Support Files"; sourceTree = "<group>"; };
+		323460FE1F7882B800AEDC30 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Headers; path = Pods/Headers; sourceTree = "<group>"; };
+		323460FF1F7882B900AEDC30 /* AWSSimpleDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSimpleDB; path = Pods/AWSSimpleDB; sourceTree = "<group>"; };
+		323461001F7882B900AEDC30 /* AWSSQS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSQS; path = Pods/AWSSQS; sourceTree = "<group>"; };
+		323461011F7882B900AEDC30 /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Manifest.lock; path = Pods/Manifest.lock; sourceTree = "<group>"; };
+		323461021F7882B900AEDC30 /* AWSDynamoDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSDynamoDB; path = Pods/AWSDynamoDB; sourceTree = "<group>"; };
+		323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoIdentityProvider; path = Pods/AWSCognitoIdentityProvider; sourceTree = "<group>"; };
+		323461041F7882B900AEDC30 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
+		323461051F7882B900AEDC30 /* AWSSNS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSNS; path = Pods/AWSSNS; sourceTree = "<group>"; };
+		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		323461271F7882B900AEDC30 /* AWSSES */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSES; path = Pods/AWSSES; sourceTree = "<group>"; };
 		32A61F3A1F639C530026310B /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		32A61F3D1F639DFE0026310B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		32BAD42E1F5705B3009BC21E /* iff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -32,6 +134,8 @@
 		32BAD4421F5705B3009BC21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32FF4A2C1F644A0900F4C97F /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		755F94C9EF1AA2EF6F92058B /* libPods-iff.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iff.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEFE464B23D517E7AEB22338 /* Pods-iff.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iff.debug.xcconfig"; path = "Pods/Target Support Files/Pods-iff/Pods-iff.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -39,17 +143,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				57DA7F51660F0EBF80FC574C /* libPods-iff.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		323461071F7882B900AEDC30 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				323461141F7882B900AEDC30 /* libAWSCognito.a */,
+				323461161F7882B900AEDC30 /* libAWSCognitoIdentityProvider.a */,
+				323461181F7882B900AEDC30 /* libAWSCore.a */,
+				3234611A1F7882B900AEDC30 /* libAWSDynamoDB.a */,
+				3234611C1F7882B900AEDC30 /* libAWSS3.a */,
+				3234611E1F7882B900AEDC30 /* libAWSSES.a */,
+				323461201F7882B900AEDC30 /* libAWSSimpleDB.a */,
+				323461221F7882B900AEDC30 /* libAWSSNS.a */,
+				323461241F7882B900AEDC30 /* libAWSSQS.a */,
+				323461261F7882B900AEDC30 /* libPods-iff.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		32BAD4251F5705B3009BC21E = {
 			isa = PBXGroup;
 			children = (
 				32BAD4301F5705B3009BC21E /* iff */,
 				32BAD42F1F5705B3009BC21E /* Products */,
+				91578FEEDC93BA5DF9FA0451 /* Pods */,
+				E33D222F74676ADB05924B53 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,6 +213,37 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		91578FEEDC93BA5DF9FA0451 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				323460FC1F7882B800AEDC30 /* AWSCognito */,
+				323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */,
+				323460FA1F7882B800AEDC30 /* AWSCore */,
+				323461021F7882B900AEDC30 /* AWSDynamoDB */,
+				323460FB1F7882B800AEDC30 /* AWSS3 */,
+				323461271F7882B900AEDC30 /* AWSSES */,
+				323460FF1F7882B900AEDC30 /* AWSSimpleDB */,
+				323461051F7882B900AEDC30 /* AWSSNS */,
+				323461001F7882B900AEDC30 /* AWSSQS */,
+				323460FE1F7882B800AEDC30 /* Headers */,
+				323461041F7882B900AEDC30 /* Local Podspecs */,
+				323461011F7882B900AEDC30 /* Manifest.lock */,
+				323461061F7882B900AEDC30 /* Pods.xcodeproj */,
+				323460FD1F7882B800AEDC30 /* Target Support Files */,
+				AEFE464B23D517E7AEB22338 /* Pods-iff.debug.xcconfig */,
+				1F6295F87E7E38921F1E8F69 /* Pods-iff.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		E33D222F74676ADB05924B53 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				755F94C9EF1AA2EF6F92058B /* libPods-iff.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -96,9 +251,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 32BAD4451F5705B3009BC21E /* Build configuration list for PBXNativeTarget "iff" */;
 			buildPhases = (
+				A3451EA22304E0A1095F3E1C /* [CP] Check Pods Manifest.lock */,
 				32BAD42A1F5705B3009BC21E /* Sources */,
 				32BAD42B1F5705B3009BC21E /* Frameworks */,
 				32BAD42C1F5705B3009BC21E /* Resources */,
+				CB6B6C9461A2C7367D373DEE /* [CP] Embed Pods Frameworks */,
+				8158B464F97BFDE96C7DCDFA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -136,6 +294,12 @@
 			mainGroup = 32BAD4251F5705B3009BC21E;
 			productRefGroup = 32BAD42F1F5705B3009BC21E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 323461071F7882B900AEDC30 /* Products */;
+					ProjectRef = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				32BAD42D1F5705B3009BC21E /* iff */,
@@ -143,18 +307,155 @@
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		323461141F7882B900AEDC30 /* libAWSCognito.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSCognito.a;
+			remoteRef = 323461131F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461161F7882B900AEDC30 /* libAWSCognitoIdentityProvider.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSCognitoIdentityProvider.a;
+			remoteRef = 323461151F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461181F7882B900AEDC30 /* libAWSCore.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSCore.a;
+			remoteRef = 323461171F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3234611A1F7882B900AEDC30 /* libAWSDynamoDB.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSDynamoDB.a;
+			remoteRef = 323461191F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3234611C1F7882B900AEDC30 /* libAWSS3.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSS3.a;
+			remoteRef = 3234611B1F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3234611E1F7882B900AEDC30 /* libAWSSES.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSSES.a;
+			remoteRef = 3234611D1F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461201F7882B900AEDC30 /* libAWSSimpleDB.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSSimpleDB.a;
+			remoteRef = 3234611F1F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461221F7882B900AEDC30 /* libAWSSNS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSSNS.a;
+			remoteRef = 323461211F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461241F7882B900AEDC30 /* libAWSSQS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSSQS.a;
+			remoteRef = 323461231F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		323461261F7882B900AEDC30 /* libPods-iff.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libPods-iff.a";
+			remoteRef = 323461251F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
 /* Begin PBXResourcesBuildPhase section */
 		32BAD42C1F5705B3009BC21E /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				323461331F7882BA00AEDC30 /* AWSSNS in Resources */,
+				3234612E1F7882BA00AEDC30 /* AWSSQS in Resources */,
+				3234612A1F7882BA00AEDC30 /* AWSCognito in Resources */,
+				323461291F7882BA00AEDC30 /* AWSS3 in Resources */,
 				32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */,
+				323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */,
+				3234612F1F7882BA00AEDC30 /* Manifest.lock in Resources */,
+				323461321F7882BA00AEDC30 /* Local Podspecs in Resources */,
+				3234612C1F7882BA00AEDC30 /* Headers in Resources */,
 				32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */,
 				32BAD43C1F5705B3009BC21E /* Main.storyboard in Resources */,
+				323461281F7882BA00AEDC30 /* AWSCore in Resources */,
+				323461341F7882BA00AEDC30 /* AWSSES in Resources */,
+				323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */,
+				3234612B1F7882BA00AEDC30 /* Target Support Files in Resources */,
+				3234612D1F7882BA00AEDC30 /* AWSSimpleDB in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		8158B464F97BFDE96C7DCDFA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iff/Pods-iff-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3451EA22304E0A1095F3E1C /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-iff-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CB6B6C9461A2C7367D373DEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-iff/Pods-iff-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		32BAD42A1F5705B3009BC21E /* Sources */ = {
@@ -283,6 +584,7 @@
 		};
 		32BAD4461F5705B3009BC21E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AEFE464B23D517E7AEB22338 /* Pods-iff.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9UY6GP7VZG;
@@ -295,6 +597,7 @@
 		};
 		32BAD4471F5705B3009BC21E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1F6295F87E7E38921F1E8F69 /* Pods-iff.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 9UY6GP7VZG;

@@ -8,6 +8,9 @@
 
 #import "AppDelegate.h"
 
+#import <AWSCore/AWSCore.h>
+#import <AWSCognito/AWSCognito.h>
+
 @interface AppDelegate ()
 
 @end
@@ -17,6 +20,13 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
+                                                          initWithRegionType:AWSRegionUSEast1
+                                                          identityPoolId:@"us-west-2_xSVg8gk68"];
+    
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    
+    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
     return YES;
 }
 
