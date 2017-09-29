@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		323461281F7882BA00AEDC30 /* AWSCore in Resources */ = {isa = PBXBuildFile; fileRef = 323460FA1F7882B800AEDC30 /* AWSCore */; };
 		323461291F7882BA00AEDC30 /* AWSS3 in Resources */ = {isa = PBXBuildFile; fileRef = 323460FB1F7882B800AEDC30 /* AWSS3 */; };
-		3234612A1F7882BA00AEDC30 /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 323460FC1F7882B800AEDC30 /* AWSCognito */; };
 		3234612B1F7882BA00AEDC30 /* Target Support Files in Resources */ = {isa = PBXBuildFile; fileRef = 323460FD1F7882B800AEDC30 /* Target Support Files */; };
 		3234612C1F7882BA00AEDC30 /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 323460FE1F7882B800AEDC30 /* Headers */; };
 		3234612D1F7882BA00AEDC30 /* AWSSimpleDB in Resources */ = {isa = PBXBuildFile; fileRef = 323460FF1F7882B900AEDC30 /* AWSSimpleDB */; };
@@ -20,6 +19,7 @@
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
 		323461331F7882BA00AEDC30 /* AWSSNS in Resources */ = {isa = PBXBuildFile; fileRef = 323461051F7882B900AEDC30 /* AWSSNS */; };
 		323461341F7882BA00AEDC30 /* AWSSES in Resources */ = {isa = PBXBuildFile; fileRef = 323461271F7882B900AEDC30 /* AWSSES */; };
+		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A61F3D1F639DFE0026310B /* DashboardViewController.m */; };
 		32BAD4331F5705B3009BC21E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4321F5705B3009BC21E /* main.m */; };
 		32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4351F5705B3009BC21E /* AppDelegate.m */; };
@@ -108,7 +108,6 @@
 		1F6295F87E7E38921F1E8F69 /* Pods-iff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iff.release.xcconfig"; path = "Pods/Target Support Files/Pods-iff/Pods-iff.release.xcconfig"; sourceTree = "<group>"; };
 		323460FA1F7882B800AEDC30 /* AWSCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCore; path = Pods/AWSCore; sourceTree = "<group>"; };
 		323460FB1F7882B800AEDC30 /* AWSS3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSS3; path = Pods/AWSS3; sourceTree = "<group>"; };
-		323460FC1F7882B800AEDC30 /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; path = AWSCognito; sourceTree = "<group>"; };
 		323460FD1F7882B800AEDC30 /* Target Support Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Target Support Files"; path = "Pods/Target Support Files"; sourceTree = "<group>"; };
 		323460FE1F7882B800AEDC30 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Headers; path = Pods/Headers; sourceTree = "<group>"; };
 		323460FF1F7882B900AEDC30 /* AWSSimpleDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSimpleDB; path = Pods/AWSSimpleDB; sourceTree = "<group>"; };
@@ -120,6 +119,7 @@
 		323461051F7882B900AEDC30 /* AWSSNS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSNS; path = Pods/AWSSNS; sourceTree = "<group>"; };
 		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		323461271F7882B900AEDC30 /* AWSSES */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSES; path = Pods/AWSSES; sourceTree = "<group>"; };
+		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
 		32A61F3A1F639C530026310B /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		32A61F3D1F639DFE0026310B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		32BAD42E1F5705B3009BC21E /* iff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -216,7 +216,7 @@
 		91578FEEDC93BA5DF9FA0451 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				323460FC1F7882B800AEDC30 /* AWSCognito */,
+				3286D0E11F7EAA590011446E /* AWSCognito */,
 				323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */,
 				323460FA1F7882B800AEDC30 /* AWSCore */,
 				323461021F7882B900AEDC30 /* AWSDynamoDB */,
@@ -385,9 +385,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3286D0EC1F7EAA590011446E /* AWSCognito in Resources */,
 				323461331F7882BA00AEDC30 /* AWSSNS in Resources */,
 				3234612E1F7882BA00AEDC30 /* AWSSQS in Resources */,
-				3234612A1F7882BA00AEDC30 /* AWSCognito in Resources */,
 				323461291F7882BA00AEDC30 /* AWSS3 in Resources */,
 				32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */,
 				323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */,
