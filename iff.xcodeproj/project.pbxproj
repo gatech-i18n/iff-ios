@@ -7,18 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		320B586B1F7FE649005BC816 /* BuildProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320B586A1F7FE649005BC816 /* BuildProfileViewController.m */; };
+		320B586E1F7FEAB8005BC816 /* BasicInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 320B586D1F7FEAB8005BC816 /* BasicInfoViewController.m */; };
+		320B58701F7FF23D005BC816 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 320B586F1F7FF23D005BC816 /* Assets.xcassets */; };
 		323461281F7882BA00AEDC30 /* AWSCore in Resources */ = {isa = PBXBuildFile; fileRef = 323460FA1F7882B800AEDC30 /* AWSCore */; };
-		323461291F7882BA00AEDC30 /* AWSS3 in Resources */ = {isa = PBXBuildFile; fileRef = 323460FB1F7882B800AEDC30 /* AWSS3 */; };
 		3234612B1F7882BA00AEDC30 /* Target Support Files in Resources */ = {isa = PBXBuildFile; fileRef = 323460FD1F7882B800AEDC30 /* Target Support Files */; };
 		3234612C1F7882BA00AEDC30 /* Headers in Resources */ = {isa = PBXBuildFile; fileRef = 323460FE1F7882B800AEDC30 /* Headers */; };
-		3234612D1F7882BA00AEDC30 /* AWSSimpleDB in Resources */ = {isa = PBXBuildFile; fileRef = 323460FF1F7882B900AEDC30 /* AWSSimpleDB */; };
-		3234612E1F7882BA00AEDC30 /* AWSSQS in Resources */ = {isa = PBXBuildFile; fileRef = 323461001F7882B900AEDC30 /* AWSSQS */; };
 		3234612F1F7882BA00AEDC30 /* Manifest.lock in Resources */ = {isa = PBXBuildFile; fileRef = 323461011F7882B900AEDC30 /* Manifest.lock */; };
 		323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */ = {isa = PBXBuildFile; fileRef = 323461021F7882B900AEDC30 /* AWSDynamoDB */; };
 		323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */; };
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
-		323461331F7882BA00AEDC30 /* AWSSNS in Resources */ = {isa = PBXBuildFile; fileRef = 323461051F7882B900AEDC30 /* AWSSNS */; };
-		323461341F7882BA00AEDC30 /* AWSSES in Resources */ = {isa = PBXBuildFile; fileRef = 323461271F7882B900AEDC30 /* AWSSES */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A61F3D1F639DFE0026310B /* DashboardViewController.m */; };
 		32BAD4331F5705B3009BC21E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4321F5705B3009BC21E /* main.m */; };
@@ -27,6 +25,11 @@
 		32BAD43C1F5705B3009BC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43A1F5705B3009BC21E /* Main.storyboard */; };
 		32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43D1F5705B3009BC21E /* Assets.xcassets */; };
 		32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43F1F5705B3009BC21E /* LaunchScreen.storyboard */; };
+		32D02F481F800094000316DB /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D02F471F800094000316DB /* UserSession.m */; };
+		32D02F4B1F8005FB000316DB /* AWSSQS in Resources */ = {isa = PBXBuildFile; fileRef = 32D02F491F8005FA000316DB /* AWSSQS */; };
+		32D02F4C1F8005FB000316DB /* AWSSimpleDB in Resources */ = {isa = PBXBuildFile; fileRef = 32D02F4A1F8005FB000316DB /* AWSSimpleDB */; };
+		32D02F691F802195000316DB /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D02F671F802195000316DB /* QuestionViewController.m */; };
+		32FDBF281F8047DF00B1C9EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */; };
 		32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */; };
 		57DA7F51660F0EBF80FC574C /* libPods-iff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 755F94C9EF1AA2EF6F92058B /* libPods-iff.a */; };
 /* End PBXBuildFile section */
@@ -106,19 +109,19 @@
 
 /* Begin PBXFileReference section */
 		1F6295F87E7E38921F1E8F69 /* Pods-iff.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iff.release.xcconfig"; path = "Pods/Target Support Files/Pods-iff/Pods-iff.release.xcconfig"; sourceTree = "<group>"; };
+		320B585F1F7FE5D3005BC816 /* BuildProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuildProfileViewController.h; sourceTree = "<group>"; };
+		320B586A1F7FE649005BC816 /* BuildProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BuildProfileViewController.m; sourceTree = "<group>"; };
+		320B586C1F7FEA7E005BC816 /* BasicInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BasicInfoViewController.h; sourceTree = "<group>"; };
+		320B586D1F7FEAB8005BC816 /* BasicInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BasicInfoViewController.m; sourceTree = "<group>"; };
+		320B586F1F7FF23D005BC816 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = iff/Assets.xcassets; sourceTree = "<group>"; };
 		323460FA1F7882B800AEDC30 /* AWSCore */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCore; path = Pods/AWSCore; sourceTree = "<group>"; };
-		323460FB1F7882B800AEDC30 /* AWSS3 */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSS3; path = Pods/AWSS3; sourceTree = "<group>"; };
 		323460FD1F7882B800AEDC30 /* Target Support Files */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Target Support Files"; path = "Pods/Target Support Files"; sourceTree = "<group>"; };
 		323460FE1F7882B800AEDC30 /* Headers */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Headers; path = Pods/Headers; sourceTree = "<group>"; };
-		323460FF1F7882B900AEDC30 /* AWSSimpleDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSimpleDB; path = Pods/AWSSimpleDB; sourceTree = "<group>"; };
-		323461001F7882B900AEDC30 /* AWSSQS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSQS; path = Pods/AWSSQS; sourceTree = "<group>"; };
 		323461011F7882B900AEDC30 /* Manifest.lock */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = Manifest.lock; path = Pods/Manifest.lock; sourceTree = "<group>"; };
 		323461021F7882B900AEDC30 /* AWSDynamoDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSDynamoDB; path = Pods/AWSDynamoDB; sourceTree = "<group>"; };
 		323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoIdentityProvider; path = Pods/AWSCognitoIdentityProvider; sourceTree = "<group>"; };
 		323461041F7882B900AEDC30 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
-		323461051F7882B900AEDC30 /* AWSSNS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSNS; path = Pods/AWSSNS; sourceTree = "<group>"; };
 		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
-		323461271F7882B900AEDC30 /* AWSSES */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSES; path = Pods/AWSSES; sourceTree = "<group>"; };
 		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
 		32A61F3A1F639C530026310B /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		32A61F3D1F639DFE0026310B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
@@ -132,6 +135,14 @@
 		32BAD43D1F5705B3009BC21E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32BAD4401F5705B3009BC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32BAD4421F5705B3009BC21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		32D02F3C1F7FFFE8000316DB /* UserSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
+		32D02F471F800094000316DB /* UserSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
+		32D02F491F8005FA000316DB /* AWSSQS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSQS; path = Pods/AWSSQS; sourceTree = "<group>"; };
+		32D02F4A1F8005FB000316DB /* AWSSimpleDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSimpleDB; path = Pods/AWSSimpleDB; sourceTree = "<group>"; };
+		32D02F671F802195000316DB /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
+		32D02F681F802195000316DB /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		32FDBF1C1F80478B00B1C9EB /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		32FF4A2C1F644A0900F4C97F /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		755F94C9EF1AA2EF6F92058B /* libPods-iff.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-iff.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -170,6 +181,7 @@
 		32BAD4251F5705B3009BC21E = {
 			isa = PBXGroup;
 			children = (
+				320B586F1F7FF23D005BC816 /* Assets.xcassets */,
 				32BAD4301F5705B3009BC21E /* iff */,
 				32BAD42F1F5705B3009BC21E /* Products */,
 				91578FEEDC93BA5DF9FA0451 /* Pods */,
@@ -188,6 +200,8 @@
 		32BAD4301F5705B3009BC21E /* iff */ = {
 			isa = PBXGroup;
 			children = (
+				32D02F681F802195000316DB /* QuestionViewController.h */,
+				32D02F671F802195000316DB /* QuestionViewController.m */,
 				32BAD4341F5705B3009BC21E /* AppDelegate.h */,
 				32BAD4351F5705B3009BC21E /* AppDelegate.m */,
 				32BAD4371F5705B3009BC21E /* ViewController.h */,
@@ -201,6 +215,14 @@
 				32A61F3D1F639DFE0026310B /* DashboardViewController.m */,
 				32FF4A2C1F644A0900F4C97F /* RegisterViewController.h */,
 				32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */,
+				320B585F1F7FE5D3005BC816 /* BuildProfileViewController.h */,
+				320B586A1F7FE649005BC816 /* BuildProfileViewController.m */,
+				320B586C1F7FEA7E005BC816 /* BasicInfoViewController.h */,
+				320B586D1F7FEAB8005BC816 /* BasicInfoViewController.m */,
+				32D02F3C1F7FFFE8000316DB /* UserSession.h */,
+				32D02F471F800094000316DB /* UserSession.m */,
+				32FDBF1C1F80478B00B1C9EB /* ProfileViewController.h */,
+				32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */,
 			);
 			path = iff;
 			sourceTree = "<group>";
@@ -216,15 +238,12 @@
 		91578FEEDC93BA5DF9FA0451 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				32D02F4A1F8005FB000316DB /* AWSSimpleDB */,
+				32D02F491F8005FA000316DB /* AWSSQS */,
 				3286D0E11F7EAA590011446E /* AWSCognito */,
 				323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */,
 				323460FA1F7882B800AEDC30 /* AWSCore */,
 				323461021F7882B900AEDC30 /* AWSDynamoDB */,
-				323460FB1F7882B800AEDC30 /* AWSS3 */,
-				323461271F7882B900AEDC30 /* AWSSES */,
-				323460FF1F7882B900AEDC30 /* AWSSimpleDB */,
-				323461051F7882B900AEDC30 /* AWSSNS */,
-				323461001F7882B900AEDC30 /* AWSSQS */,
 				323460FE1F7882B800AEDC30 /* Headers */,
 				323461041F7882B900AEDC30 /* Local Podspecs */,
 				323461011F7882B900AEDC30 /* Manifest.lock */,
@@ -385,22 +404,20 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32D02F4B1F8005FB000316DB /* AWSSQS in Resources */,
 				3286D0EC1F7EAA590011446E /* AWSCognito in Resources */,
-				323461331F7882BA00AEDC30 /* AWSSNS in Resources */,
-				3234612E1F7882BA00AEDC30 /* AWSSQS in Resources */,
-				323461291F7882BA00AEDC30 /* AWSS3 in Resources */,
 				32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */,
 				323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */,
+				320B58701F7FF23D005BC816 /* Assets.xcassets in Resources */,
 				3234612F1F7882BA00AEDC30 /* Manifest.lock in Resources */,
 				323461321F7882BA00AEDC30 /* Local Podspecs in Resources */,
 				3234612C1F7882BA00AEDC30 /* Headers in Resources */,
+				32D02F4C1F8005FB000316DB /* AWSSimpleDB in Resources */,
 				32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */,
 				32BAD43C1F5705B3009BC21E /* Main.storyboard in Resources */,
 				323461281F7882BA00AEDC30 /* AWSCore in Resources */,
-				323461341F7882BA00AEDC30 /* AWSSES in Resources */,
 				323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */,
 				3234612B1F7882BA00AEDC30 /* Target Support Files in Resources */,
-				3234612D1F7882BA00AEDC30 /* AWSSimpleDB in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,8 +480,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */,
+				320B586B1F7FE649005BC816 /* BuildProfileViewController.m in Sources */,
 				32BAD4391F5705B3009BC21E /* ViewController.m in Sources */,
+				32D02F481F800094000316DB /* UserSession.m in Sources */,
+				32FDBF281F8047DF00B1C9EB /* ProfileViewController.m in Sources */,
 				32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */,
+				32D02F691F802195000316DB /* QuestionViewController.m in Sources */,
+				320B586E1F7FEAB8005BC816 /* BasicInfoViewController.m in Sources */,
 				32BAD4331F5705B3009BC21E /* main.m in Sources */,
 				32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */,
 			);
