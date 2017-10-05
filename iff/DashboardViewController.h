@@ -9,9 +9,4 @@
 #import <UIKit/UIKit.h>
 
 @interface DashboardViewController : UIViewController
-
-@property (strong, nonatomic) IBOutlet UILabel *userInfoLabel;
-
-@property (strong, nonatomic) NSString *userInfo;
-
 @end

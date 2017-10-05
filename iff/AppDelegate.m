@@ -20,13 +20,19 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc]
-                                                          initWithRegionType:AWSRegionUSEast1
-                                                          identityPoolId:@"us-west-2_xSVg8gk68"];
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:nil];
     
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:credentialsProvider];
+    //create a pool
+    AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
+                                                              initWithClientId:@"5cgmr8db2jspjfmbkff1h1acks"
+                                                              clientSecret:@"120fqkrutq6c3dum0d91paqc475430h2sumbl7olm81bpq5tpuln"
+                                                              poolId:@"us-west-2_xSVg8gk68"];
+    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration userPoolConfiguration:configuration forKey:@"UserPool"];
+    AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
     
-    AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configuration;
+    self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    pool.delegate = self;
     return YES;
 }
 
@@ -55,6 +61,29 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//set up password authentication ui to retrieve username and password from the user
+-(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
+    
+    if(!self.navigationController){
+        self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInController"];
+    }
+    if(!self.signInViewController){
+        self.signInViewController = (ViewController *)self.navigationController.viewControllers[0];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //rewind to login screen
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        
+        //display login screen if it isn't already visibile
+        if(!(self.navigationController.isViewLoaded && self.navigationController.view.window))
+        {
+            [self.window.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
+        }
+    });
+    return (id<AWSCognitoIdentityPasswordAuthentication>)self.signInViewController;
 }
 
 

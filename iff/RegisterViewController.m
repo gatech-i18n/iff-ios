@@ -10,17 +10,14 @@
 
 #import "DashboardViewController.h"
 
-//#import <AWSCore/AWSService.h>
-//#import <AWSCognito/AWSCognito.h>
-//#import <AWSCognito/AWSCognitoService.h>
-//#import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
-//#import <AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h>
+#import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @implementation RegisterViewController
 
 - (void)viewDidLoad{
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    self.pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -29,36 +26,48 @@
 }
 
 - (IBAction)handleRegister:(id)sender {
-//    //setup service config
-//    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-//
-//    //create a pool
-//    AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
-//                                                              initWithClientId:@"5cgmr8db2jspjfmbkff1h1acks"
-//                                                              clientSecret:@"120fqkrutq6c3dum0d91paqc475430h2sumbl7olm81bpq5tpuln"
-//                                                              poolId:@"us-west-2_xSVg8gk68"];
-//    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration userPoolConfiguration:configuration forKey:@"UserPool"];
-//    AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
-//
-//    NSMutableArray * attributes = [NSMutableArray new];
-//
-//    AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
-//    email.name = @"email";
-//    email.value = _userEmailField.text;
-//
-//    [attributes addObject:email];
-//
-//    [pool signUp:_userEmailField.text password:_userPassword.text userAttributes:@[email] validationData:nil];
+    
 
-    [self performSegueWithIdentifier:@"AddInfo" sender:_userEmailField];
+    NSMutableArray * attributes = [NSMutableArray new];
+
+    AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+    email.name = @"email";
+    email.value = _userEmailField.text;
+
+    [attributes addObject:email];
+
+    //sign up the user
+    [[self.pool signUp:self.userEmailField.text password:self.userPassword.text userAttributes:attributes validationData:nil] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> * _Nonnull task) {
+        NSLog(@"Successful signUp user: %@",task.result.user.username);
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (task.error) {
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:task.error.userInfo[@"__type"]
+                                              message:task.error.userInfo[@"message"]
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [alert dismissViewControllerAnimated:YES completion:nil];
+                                         
+                                     }];
+                
+                [alert addAction:ok];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            } else if (task.result.user.confirmedStatus != AWSCognitoIdentityUserStatusConfirmed) {
+                self.sentTo = task.result.codeDeliveryDetails.destination;
+                //[self performSegueWithIdentifier:@"cancelRegister" sender:sender];
+            } else {
+                //[self performSegueWithIdentifier:@"AddInfo" sender:sender];
+            }});
+        return nil;
+    }];
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"afterRegister"]) {
-        DashboardViewController *dashboard = (DashboardViewController *)[segue destinationViewController];
-        dashboard.userInfo = _userEmailField.text;
-    }
-}
 
 @end
 

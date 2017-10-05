@@ -8,8 +8,6 @@
 
 #import "ViewController.h"
 
-#import "DashboardViewController.h"
-
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -24,15 +22,45 @@
 }
 
 - (IBAction)handleLogin:(id)sender {
-    [self performSegueWithIdentifier:@"LoginToDashboard" sender:_userEmailField];
+    self.passwordAuthenticationCompletion.result = [[AWSCognitoIdentityPasswordAuthenticationDetails alloc] initWithUsername:self.userEmailField.text password:self.userPasswordField.text];
 }
 
+# pragma AWSCognitoIdentityPasswordAuthentication
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    if ([[segue identifier] isEqualToString:@"LoginToDashboard"]) {
-        DashboardViewController *dashboard = (DashboardViewController *)[segue destinationViewController];
-        dashboard.userInfo = _userEmailField.text;
-    }
+- (void) getPasswordAuthenticationDetails:(AWSCognitoIdentityPasswordAuthenticationInput *)authenticationInput passwordAuthenticationCompletionSource:(AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails *> *)passwordAuthenticationCompletionSource
+{
+    self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if(!self.userEmailField.text)
+            self.userEmailField.text = authenticationInput.lastKnownUsername;
+    });
+}
+
+- (void) didCompletePasswordAuthenticationStepWithError:(NSError *)error
+{
+    dispatch_async(dispatch_get_main_queue(), ^{
+        if (error) {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:error.userInfo[@"__type"]
+                                          message:error.userInfo[@"message"]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* retry = [UIAlertAction
+                                    actionWithTitle:@"Retry"
+                                    style:UIAlertActionStyleDefault
+                                    handler:^(UIAlertAction * action)
+                                    {
+                                        [alert dismissViewControllerAnimated:YES completion:nil];
+                                     
+                                    }];
+            
+            [alert addAction:retry];
+
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+    });
 }
 
 @end
