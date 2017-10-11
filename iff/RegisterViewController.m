@@ -62,6 +62,7 @@
                 self.sentTo = task.result.codeDeliveryDetails.destination;
                 //[self performSegueWithIdentifier:@"cancelRegister" sender:sender];
             } else {
+                [self presentViewController:self.navigationController.viewControllers[2] animated:YES completion:nil];
                 //[self performSegueWithIdentifier:@"AddInfo" sender:sender];
             }});
         return nil;

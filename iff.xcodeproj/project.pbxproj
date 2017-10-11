@@ -17,6 +17,7 @@
 		323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */ = {isa = PBXBuildFile; fileRef = 323461021F7882B900AEDC30 /* AWSDynamoDB */; };
 		323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */; };
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
+		3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3271745D1F8D0DF90097BFB3 /* SettingViewController.m */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A61F3D1F639DFE0026310B /* DashboardViewController.m */; };
 		32BAD4331F5705B3009BC21E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4321F5705B3009BC21E /* main.m */; };
@@ -122,6 +123,8 @@
 		323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoIdentityProvider; path = Pods/AWSCognitoIdentityProvider; sourceTree = "<group>"; };
 		323461041F7882B900AEDC30 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
 		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		327174501F8D0D0B0097BFB3 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		3271745D1F8D0DF90097BFB3 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
 		32A61F3A1F639C530026310B /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		32A61F3D1F639DFE0026310B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
@@ -223,6 +226,8 @@
 				32D02F471F800094000316DB /* UserSession.m */,
 				32FDBF1C1F80478B00B1C9EB /* ProfileViewController.h */,
 				32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */,
+				327174501F8D0D0B0097BFB3 /* SettingViewController.h */,
+				3271745D1F8D0DF90097BFB3 /* SettingViewController.m */,
 			);
 			path = iff;
 			sourceTree = "<group>";
@@ -488,6 +493,7 @@
 				32D02F691F802195000316DB /* QuestionViewController.m in Sources */,
 				320B586E1F7FEAB8005BC816 /* BasicInfoViewController.m in Sources */,
 				32BAD4331F5705B3009BC21E /* main.m in Sources */,
+				3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */,
 				32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
