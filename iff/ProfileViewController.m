@@ -15,7 +15,7 @@
         self.user = [self.pool currentUser];
     }
     
-    _userSession = [[UserSession alloc] initWithEmail:@"burdell@gatech.edu" firstName:@"George" lastName:@"Burdell" country:@"United States" favoriteThings:@[@"buzz", @"chickfila", @"basketball"] more:@"I love GT!"];
+    _userSession = [[UserSession alloc] initWithProfileID:[[NSUUID UUID] UUIDString] email:@"burdell@gatech.edu" firstName:@"George" lastName:@"Burdell" country:@"China" favoriteThings:@[@"buzz", @"chickfila", @"basketball"] more:@"I love GT!"];
     
     _useremail.text = self.user.username;
     _country.text = _userSession.country;

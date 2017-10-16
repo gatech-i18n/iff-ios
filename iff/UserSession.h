@@ -12,6 +12,8 @@
 
 @property (strong, nonatomic, readonly) NSString *userID;
 
+@property (strong, nonatomic, readonly) NSString *profileID;
+
 @property (strong, nonatomic) NSString *email;
 
 @property (strong, nonatomic) NSString *firstName;
@@ -30,12 +32,13 @@
 
 - (UserSession *)initWithUserID:(NSString *)userID;
 
-- (UserSession *)initWithEmail:(NSString *)email
-                     firstName:(NSString *)firstName
-                      lastName:(NSString *)lastName
-                       country:(NSString *)country
-                favoriteThings:(NSArray<NSString *> *)favoriteThings
-                          more:(NSString *)more;
+- (UserSession *)initWithProfileID:(NSString *)profileID
+                             email:(NSString *)email
+                         firstName:(NSString *)firstName
+                          lastName:(NSString *)lastName
+                           country:(NSString *)country
+                    favoriteThings:(NSArray<NSString *> *)favoriteThings
+                              more:(NSString *)more;
 
 @end
 

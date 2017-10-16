@@ -64,7 +64,7 @@
 }
 
 //set up password authentication ui to retrieve username and password from the user
--(id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
+- (id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
     
     if(!self.navigationController){
         self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInController"];

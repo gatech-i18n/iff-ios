@@ -20,15 +20,17 @@
     return self;
 }
 
-- (UserSession *)initWithEmail:(NSString *)email
-                     firstName:(NSString *)firstName
-                      lastName:(NSString *)lastName
-                       country:(NSString *)country
-                favoriteThings:(NSArray<NSString *> *)favoriteThings
-                          more:(NSString *)more
+- (UserSession *)initWithProfileID:(NSString *)profileID
+                             email:(NSString *)email
+                         firstName:(NSString *)firstName
+                          lastName:(NSString *)lastName
+                           country:(NSString *)country
+                    favoriteThings:(NSArray<NSString *> *)favoriteThings
+                              more:(NSString *)more
 {
     self = [super init];
     if (self) {
+        _profileID = profileID;
         _email = email;
         _firstName = firstName;
         _lastName = lastName;

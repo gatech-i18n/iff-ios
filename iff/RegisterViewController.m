@@ -41,6 +41,7 @@
         NSLog(@"Successful signUp user: %@",task.result.user.username);
         dispatch_async(dispatch_get_main_queue(), ^{
             if (task.error) {
+//                __weak typeof(self) weakSelf = self;
                 UIAlertController * alert=   [UIAlertController
                                               alertControllerWithTitle:task.error.userInfo[@"__type"]
                                               message:task.error.userInfo[@"message"]
@@ -52,7 +53,7 @@
                                      handler:^(UIAlertAction * action)
                                      {
                                          [alert dismissViewControllerAnimated:YES completion:nil];
-                                         
+//                                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                                      }];
                 
                 [alert addAction:ok];
@@ -62,8 +63,8 @@
                 self.sentTo = task.result.codeDeliveryDetails.destination;
                 //[self performSegueWithIdentifier:@"cancelRegister" sender:sender];
             } else {
-                [self presentViewController:self.navigationController.viewControllers[2] animated:YES completion:nil];
-                //[self performSegueWithIdentifier:@"AddInfo" sender:sender];
+                //[self presentViewController:self.navigationController.viewControllers[2] animated:YES completion:nil];
+                [self performSegueWithIdentifier:@"AddInfo" sender:sender];
             }});
         return nil;
     }];
