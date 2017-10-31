@@ -1,11 +1,3 @@
-//
-//  ViewController.m
-//  iff
-//
-//  Created by tomoreoreo on 8/30/17.
-//  Copyright © 2017 tomoreoreo. All rights reserved.
-//
-
 #import "ViewController.h"
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h>
@@ -43,10 +35,10 @@
 {
     dispatch_async(dispatch_get_main_queue(), ^{
         if (error) {
-            UIAlertController * alert=   [UIAlertController
-                                          alertControllerWithTitle:error.userInfo[@"__type"]
-                                          message:error.userInfo[@"message"]
-                                          preferredStyle:UIAlertControllerStyleAlert];
+            UIAlertController * alert= [UIAlertController
+                                        alertControllerWithTitle:error.userInfo[@"__type"]
+                                        message:error.userInfo[@"message"]
+                                        preferredStyle:UIAlertControllerStyleAlert];
             
             UIAlertAction* retry = [UIAlertAction
                                     actionWithTitle:@"Retry"

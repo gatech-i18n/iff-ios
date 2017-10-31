@@ -1,11 +1,3 @@
-//
-//  AppDelegate.m
-//  iff
-//
-//  Created by tomoreoreo on 8/30/17.
-//  Copyright © 2017 tomoreoreo. All rights reserved.
-//
-
 #import "AppDelegate.h"
 
 #import <AWSCore/AWSCore.h>

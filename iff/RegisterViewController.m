@@ -1,11 +1,3 @@
-//
-//  RegisterViewController.m
-//  iff
-//
-//  Created by tomoreoreo on 9/9/17.
-//  Copyright © 2017 tomoreoreo. All rights reserved.
-//
-
 #import "RegisterViewController.h"
 
 #import "ConfirmRegistrationViewController.h"

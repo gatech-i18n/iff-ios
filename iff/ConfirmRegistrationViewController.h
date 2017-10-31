@@ -1,11 +1,3 @@
-//
-//  ConfirmRegistrationViewController.h
-//  iff
-//
-//  Created by Binchen Hu on 10/27/17.
-//  Copyright © 2017 tomoreoreo. All rights reserved.
-//
-
 #import <UIKit/UIKit.h>
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
