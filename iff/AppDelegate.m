@@ -20,14 +20,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2 credentialsProvider:nil];
-    
+
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                                credentialsProvider:nil];
     //create a pool
     AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
-                                                              initWithClientId:@"5cgmr8db2jspjfmbkff1h1acks"
-                                                              clientSecret:@"120fqkrutq6c3dum0d91paqc475430h2sumbl7olm81bpq5tpuln"
-                                                              poolId:@"us-west-2_xSVg8gk68"];
-    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration userPoolConfiguration:configuration forKey:@"UserPool"];
+                                                              initWithClientId:@"n8drbgi9bsc0cbidielauoe57"
+                                                              clientSecret:@"1m8vpr4t90ihq3g4k9h9mj25q18tn950s45861qbga55qprvu3f4"
+                                                              poolId:@"us-east-1_EFO1NAwjc"];
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = serviceConfiguration;
+    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration
+                                                           userPoolConfiguration:configuration
+                                                                          forKey:@"UserPool"];
     AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
     
     self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -66,10 +70,10 @@
 //set up password authentication ui to retrieve username and password from the user
 - (id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
     
-    if(!self.navigationController){
+    if (!self.navigationController) {
         self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInController"];
     }
-    if(!self.signInViewController){
+    if (!self.signInViewController) {
         self.signInViewController = (ViewController *)self.navigationController.viewControllers[0];
     }
     
@@ -78,8 +82,7 @@
         [self.navigationController popToRootViewControllerAnimated:NO];
         
         //display login screen if it isn't already visibile
-        if(!(self.navigationController.isViewLoaded && self.navigationController.view.window))
-        {
+        if (!(self.navigationController.isViewLoaded && self.navigationController.view.window))  {
             [self.window.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
         }
     });

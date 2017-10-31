@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,8 +20,6 @@ FOUNDATION_EXPORT double AWSCoreVersionNumber;
 
 //! Project version string for AWSCore.
 FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
-
-#import "AWSCocoaLumberjack.h"
 
 #import "AWSServiceEnum.h"
 #import "AWSService.h"
@@ -48,7 +46,6 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[];
 #import "AWSKSReachability.h"
 #import "AWSTMCache.h"
 #import "AWSUICKeyChainStore.h"
-
 
 #import "AWSSTS.h"
 #import "AWSCognitoIdentity.h"

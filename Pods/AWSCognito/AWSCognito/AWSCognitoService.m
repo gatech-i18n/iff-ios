@@ -23,7 +23,7 @@
 #import "AWSCognitoConstants.h"
 #import "AWSCognitoUtil.h"
 #import "AWSCognitoDataset_Internal.h"
-#import <AWSCore/AWSCocoaLumberjack.h>
+#import <AWSCore/AWSLogging.h>
 #import "AWSCognitoHandlers.h"
 #import "AWSCognitoConflict_Internal.h"
 #import <AWSCore/AWSUICKeyChainStore.h>
@@ -34,7 +34,7 @@
 #import "Fabric+FABKits.h"
 
 static NSString *const AWSInfoCognito = @"Cognito";
-static NSString *const AWSCognitoSDKVersion = @"2.6.1";
+static NSString *const AWSCognitoSDKVersion = @"2.4.16";
 
 NSString *const AWSCognitoDidStartSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidStartSynchronizeNotification";
 NSString *const AWSCognitoDidEndSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidEndSynchronizeNotification";
@@ -232,8 +232,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [self.cognitoCredentialsProvider clearKeychain];
 }
 
-- (AWSTask<NSArray<AWSCognitoDatasetMetadata *> *> *)refreshDatasetMetadata {
-    return [[[self.cognitoCredentialsProvider credentials] continueWithBlock:^id(AWSTask *task) {
+- (AWSTask *)refreshDatasetMetadata {
+    return [[[self.cognitoCredentialsProvider getIdentityId] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil]];
         }
@@ -245,7 +245,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if(task.isCancelled){
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoErrorTaskCanceled userInfo:nil]];
         }else if(task.error){
-            AWSDDLogError(@"Unable to list datasets: %@", task.error);
+            AWSLogError(@"Unable to list datasets: %@", task.error);
             return task;
         }else {
             AWSCognitoSyncListDatasetsResponse* response = task.result;
@@ -255,7 +255,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (NSArray<AWSCognitoDatasetMetadata *> *)listDatasets {
+- (NSArray *)listDatasets {
     return [self.sqliteManager getDatasets:nil];
 }
 
@@ -265,7 +265,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (void)identityChanged:(NSNotification *)notification {
-    AWSDDLogDebug(@"IdentityChanged");
+    AWSLogDebug(@"IdentityChanged");
     NSDictionary *userInfo = notification.userInfo;
 
     NSString *oldId = [userInfo objectForKey:AWSCognitoNotificationPreviousId];
@@ -307,7 +307,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 -(AWSTask *)registerDeviceInternal:(NSString *) deviceToken {
-    return [[[self.cognitoCredentialsProvider credentials] continueWithBlock:^id(AWSTask *task) {
+    return [[[self.cognitoCredentialsProvider getIdentityId] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSCognitoErrorDomain code:AWSCognitoAuthenticationFailed userInfo:nil]];
         }
@@ -335,7 +335,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
         
         if(task.error){
-            AWSDDLogError(@"Unable to register device: %@", task.error);
+            AWSLogError(@"Unable to register device: %@", task.error);
         }
         
         return task;
@@ -386,7 +386,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 + (AWSCognitoRecordConflictHandler) defaultConflictHandler {
     return ^AWSCognitoResolvedConflict* (NSString *datasetName, AWSCognitoConflict *conflict) {
-        AWSDDLogDebug(@"Last writer wins conflict resolution for dataset %@", datasetName);
+        AWSLogDebug(@"Last writer wins conflict resolution for dataset %@", datasetName);
         if (conflict.remoteRecord == nil || [conflict.localRecord.lastModified compare:conflict.remoteRecord.lastModified] == NSOrderedDescending)
         {
             return [[AWSCognitoResolvedConflict alloc] initWithLocalRecord: conflict];

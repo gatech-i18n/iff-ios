@@ -1,7 +1,7 @@
 
 #import "ProfileViewController.h"
 
-#import "UserSession.h"
+#import "UserProfile.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @implementation ProfileViewController
@@ -14,19 +14,17 @@
     if (!self.user) {
         self.user = [self.pool currentUser];
     }
-    
-    _userSession = [[UserSession alloc] initWithProfileID:[[NSUUID UUID] UUIDString] email:@"burdell@gatech.edu" firstName:@"George" lastName:@"Burdell" country:@"China" favoriteThings:@[@"buzz", @"chickfila", @"basketball"] more:@"I love GT!"];
-    
-    _useremail.text = self.user.username;
-    _country.text = _userSession.country;
-    
-    _item1.text = _userSession.favoriteThings[0];
-    _item2.text = _userSession.favoriteThings[1];
-    _item3.text = _userSession.favoriteThings[2];
-    
-    _selfDescription.text = _userSession.more;
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    [self.navigationController setToolbarHidden:YES];
+}
+
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [self.navigationController setToolbarHidden:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

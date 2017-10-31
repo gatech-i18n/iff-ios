@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iff/RegisterViewController.m"
-            timestampString = "529803942.193426"
+            timestampString = "530945625.806058"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "53"
+            endingLineNumber = "53"
             landmarkName = "-handleRegister:"
             landmarkType = "7">
          </BreakpointContent>
@@ -22,11 +22,11 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iff/SettingViewController.m"
-            timestampString = "529558731.735482"
+            timestampString = "531022913.567227"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "54"
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iff/AppDelegate.m"
-            timestampString = "529805057.257427"
+            filePath = "iff/QuestionViewController.m"
+            timestampString = "531022913.567454"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "70"
-            endingLineNumber = "70"
-            landmarkName = "-startPasswordAuthentication"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-submitProfile:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -57,14 +57,77 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "iff/RegisterViewController.m"
-            timestampString = "529803996.178604"
+            filePath = "iff/QuestionViewController.m"
+            timestampString = "531023100.193243"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "67"
-            endingLineNumber = "67"
-            landmarkName = "-handleRegister:"
+            startingLineNumber = "57"
+            endingLineNumber = "57"
+            landmarkName = "-submitProfile:"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iff/ViewController.m"
+            timestampString = "531025337.982565"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "63"
+            endingLineNumber = "63"
+            landmarkName = "-didCompletePasswordAuthenticationStepWithError:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__65-[ViewController didCompletePasswordAuthenticationStepWithError:]_block_invoke"
+                  moduleName = "iff"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/ViewController.m"
+                  timestampString = "531025337.992328"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "676">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__copy_helper_block_.52"
+                  moduleName = "iff"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/ViewController.m"
+                  timestampString = "531025337.994636"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__destroy_helper_block_.53"
+                  moduleName = "iff"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/ViewController.m"
+                  timestampString = "531025337.996804"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "59">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

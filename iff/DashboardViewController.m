@@ -8,6 +8,8 @@
 
 #import "DashboardViewController.h"
 
+#import "NoRecommendationView.h"
+
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @interface DashboardViewController ()
@@ -23,8 +25,9 @@
     // Do any additional setup after loading the view, typically from a nib.
     self.pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
     //on initial load set the user and refresh to get attributes
-    if(!self.user)
+    if (!self.user) {
         self.user = [self.pool currentUser];
+    }
     [self refresh];
 }
 
@@ -42,15 +45,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-- (IBAction)logOut:(id)sender {
-    [self.user signOut];
-    self.title = nil;
-    self.response = nil;
-    [self.view reloadInputViews];
-    [self refresh];
-}
 
--(void)refresh {
+- (void)refresh {
     [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
         
         dispatch_async(dispatch_get_main_queue(), ^{

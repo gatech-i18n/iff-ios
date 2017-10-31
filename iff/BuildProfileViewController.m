@@ -43,7 +43,8 @@
     return viewController;
 }
 
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+               viewControllerBeforeViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((QuestionViewController *)viewController).questionIndex;
     if (index == 0 || index == NSNotFound) {
@@ -54,7 +55,8 @@
     return [self viewControllerAtIndex:index];
 }
 
-- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+- (nullable UIViewController *)pageViewController:(UIPageViewController *)pageViewController
+                viewControllerAfterViewController:(UIViewController *)viewController
 {
     NSUInteger index = ((QuestionViewController *)viewController).questionIndex;
     if (index == 2 || index == NSNotFound) {

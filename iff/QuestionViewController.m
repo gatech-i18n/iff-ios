@@ -1,8 +1,15 @@
 #import "QuestionViewController.h"
 
+#import "PROFILEIFFClient.h"
+#import "PROFILEProfile.h"
+
+#import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
+
 @interface QuestionViewController() {
     NSArray *_countries;
 }
+@property (nonatomic, strong) AWSCognitoIdentityUser * user;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
 @end
 
 @implementation QuestionViewController
@@ -14,8 +21,13 @@
     
     self.countryPicker.dataSource = self;
     self.countryPicker.delegate = self;
+    self.pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+    //on initial load set the user and refresh to get attributes
+    if(!self.user) {
+        self.user = [self.pool currentUser];
+    }
     
-    //_answer = [_countries objectAtIndex:[self.countryPicker selectedRowInComponent:0]];
+//    _answer = [_countries objectAtIndex:[self.countryPicker selectedRowInComponent:0]];
 }
 
 
@@ -38,6 +50,41 @@
 - (NSString*)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     return _countries[row];
+}
+
+- (IBAction)submitProfile:(id)sender {
+    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+    
+    PROFILEProfile *profile = [PROFILEProfile new];
+    profile._description = @"hahaha";
+    profile.profileId = [[NSUUID UUID] UUIDString];
+    profile.favoriteThings = @"eat and sleep";
+    profile.favoriteCountry = @"nowhere";
+    
+    [[profileAPI profilePost:profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (task.error) {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:task.error.userInfo[@"x-cache"]
+                                          message:task.error.userInfo[@"x-amzn-errortype"]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+            
+            [alert addAction:ok];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            [self dismissViewControllerAnimated:YES completion:nil];
+        }
+        return nil;
+    }];
+
 }
 
 @end

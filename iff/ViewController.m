@@ -8,6 +8,8 @@
 
 #import "ViewController.h"
 
+#import <AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h>
+
 @implementation ViewController
 
 - (void)viewDidLoad {
@@ -31,8 +33,9 @@
 {
     self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if(!self.userEmailField.text)
+        if (!self.userEmailField.text) {
             self.userEmailField.text = authenticationInput.lastKnownUsername;
+        }
     });
 }
 
@@ -58,7 +61,10 @@
 
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            [self dismissViewControllerAnimated:YES completion:nil];
+            AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+            [[pool currentUser] getSession:_userEmailField.text password:_userPasswordField.text validationData:nil];
+            [self performSegueWithIdentifier:@"AddInfo" sender:nil];
+//            [self dismissViewControllerAnimated:YES completion:nil];
         }
     });
 }

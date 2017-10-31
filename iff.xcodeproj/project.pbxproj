@@ -17,8 +17,15 @@
 		323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */ = {isa = PBXBuildFile; fileRef = 323461021F7882B900AEDC30 /* AWSDynamoDB */; };
 		323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */; };
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
+		3248275F1F9C2C880028C6F7 /* NamecardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248275E1F9C2C880028C6F7 /* NamecardCell.m */; };
 		3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3271745D1F8D0DF90097BFB3 /* SettingViewController.m */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
+		329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */; };
+		329289941FA4CAE30002ECE9 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289921FA4CAE20002ECE9 /* UserProfile.m */; };
+		329289971FA4ED1B0002ECE9 /* DynamoDBProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */; };
+		329289BE1FA5822A0002ECE9 /* PROFILEEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289B31FA582290002ECE9 /* PROFILEEmpty.m */; };
+		329289BF1FA5822A0002ECE9 /* PROFILEIFFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */; };
+		329289CA1FA593A90002ECE9 /* PROFILEProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289C11FA593A90002ECE9 /* PROFILEProfile.m */; };
 		32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32A61F3D1F639DFE0026310B /* DashboardViewController.m */; };
 		32BAD4331F5705B3009BC21E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4321F5705B3009BC21E /* main.m */; };
 		32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 32BAD4351F5705B3009BC21E /* AppDelegate.m */; };
@@ -26,10 +33,9 @@
 		32BAD43C1F5705B3009BC21E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43A1F5705B3009BC21E /* Main.storyboard */; };
 		32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43D1F5705B3009BC21E /* Assets.xcassets */; };
 		32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32BAD43F1F5705B3009BC21E /* LaunchScreen.storyboard */; };
-		32D02F481F800094000316DB /* UserSession.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D02F471F800094000316DB /* UserSession.m */; };
-		32D02F4B1F8005FB000316DB /* AWSSQS in Resources */ = {isa = PBXBuildFile; fileRef = 32D02F491F8005FA000316DB /* AWSSQS */; };
-		32D02F4C1F8005FB000316DB /* AWSSimpleDB in Resources */ = {isa = PBXBuildFile; fileRef = 32D02F4A1F8005FB000316DB /* AWSSimpleDB */; };
 		32D02F691F802195000316DB /* QuestionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D02F671F802195000316DB /* QuestionViewController.m */; };
+		32D990A81F9D251F00F9837B /* NoRecommendationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32D990A71F9D251F00F9837B /* NoRecommendationView.m */; };
+		32EC5D291F9C41AD008E3E1E /* ProfileBasicInfoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 32EC5D281F9C41AD008E3E1E /* ProfileBasicInfoView.m */; };
 		32FDBF281F8047DF00B1C9EB /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */; };
 		32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 32FF4A2D1F644A7800F4C97F /* RegisterViewController.m */; };
 		57DA7F51660F0EBF80FC574C /* libPods-iff.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 755F94C9EF1AA2EF6F92058B /* libPods-iff.a */; };
@@ -71,40 +77,19 @@
 			remoteGlobalIDString = 9ED863E40ED924020E1882933C9D48E6;
 			remoteInfo = AWSS3;
 		};
-		3234611D1F7882B900AEDC30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 43B592C8874EF0D532F6939B272BA197;
-			remoteInfo = AWSSES;
-		};
-		3234611F1F7882B900AEDC30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 05CBF56AA587D18CF8CE7A3BCAFA584B;
-			remoteInfo = AWSSimpleDB;
-		};
-		323461211F7882B900AEDC30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 28D3D5B80F4A7650D5697ACCA9EAB888;
-			remoteInfo = AWSSNS;
-		};
-		323461231F7882B900AEDC30 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 94D925056282EA03CA016AC270683A34;
-			remoteInfo = AWSSQS;
-		};
 		323461251F7882B900AEDC30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = 7F95DEEEB5BD499E40EBF505A7286DC8;
 			remoteInfo = "Pods-iff";
+		};
+		329289B01FA5800D0002ECE9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 44CE16C8A0162FB6388EE3575CD01648;
+			remoteInfo = AWSAPIGateway;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -123,9 +108,23 @@
 		323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoIdentityProvider; path = Pods/AWSCognitoIdentityProvider; sourceTree = "<group>"; };
 		323461041F7882B900AEDC30 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
 		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		324827531F9BF2770028C6F7 /* NamecardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamecardCell.h; sourceTree = "<group>"; };
+		3248275E1F9C2C880028C6F7 /* NamecardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamecardCell.m; sourceTree = "<group>"; };
 		327174501F8D0D0B0097BFB3 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3271745D1F8D0DF90097BFB3 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
+		3292897A1FA407E10002ECE9 /* ConfirmRegistrationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmRegistrationViewController.h; sourceTree = "<group>"; };
+		329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmRegistrationViewController.m; sourceTree = "<group>"; };
+		329289921FA4CAE20002ECE9 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
+		329289931FA4CAE30002ECE9 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
+		329289951FA4EBAF0002ECE9 /* DynamoDBProfieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamoDBProfieModel.h; sourceTree = "<group>"; };
+		329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamoDBProfileModel.m; sourceTree = "<group>"; };
+		329289B31FA582290002ECE9 /* PROFILEEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROFILEEmpty.m; sourceTree = "<group>"; };
+		329289BB1FA5822A0002ECE9 /* PROFILEEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEEmpty.h; sourceTree = "<group>"; };
+		329289BC1FA5822A0002ECE9 /* PROFILEIFFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEIFFClient.h; sourceTree = "<group>"; };
+		329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROFILEIFFClient.m; sourceTree = "<group>"; };
+		329289C11FA593A90002ECE9 /* PROFILEProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROFILEProfile.m; sourceTree = "<group>"; };
+		329289C91FA593A90002ECE9 /* PROFILEProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEProfile.h; sourceTree = "<group>"; };
 		32A61F3A1F639C530026310B /* DashboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DashboardViewController.h; sourceTree = "<group>"; };
 		32A61F3D1F639DFE0026310B /* DashboardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DashboardViewController.m; sourceTree = "<group>"; };
 		32BAD42E1F5705B3009BC21E /* iff.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iff.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -138,12 +137,12 @@
 		32BAD43D1F5705B3009BC21E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		32BAD4401F5705B3009BC21E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		32BAD4421F5705B3009BC21E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		32D02F3C1F7FFFE8000316DB /* UserSession.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserSession.h; sourceTree = "<group>"; };
-		32D02F471F800094000316DB /* UserSession.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserSession.m; sourceTree = "<group>"; };
-		32D02F491F8005FA000316DB /* AWSSQS */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSQS; path = Pods/AWSSQS; sourceTree = "<group>"; };
-		32D02F4A1F8005FB000316DB /* AWSSimpleDB */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSSimpleDB; path = Pods/AWSSimpleDB; sourceTree = "<group>"; };
 		32D02F671F802195000316DB /* QuestionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QuestionViewController.m; sourceTree = "<group>"; };
 		32D02F681F802195000316DB /* QuestionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuestionViewController.h; sourceTree = "<group>"; };
+		32D9909C1F9D247000F9837B /* NoRecommendationView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NoRecommendationView.h; sourceTree = "<group>"; };
+		32D990A71F9D251F00F9837B /* NoRecommendationView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NoRecommendationView.m; sourceTree = "<group>"; };
+		32EC5D1D1F9C4172008E3E1E /* ProfileBasicInfoView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileBasicInfoView.h; sourceTree = "<group>"; };
+		32EC5D281F9C41AD008E3E1E /* ProfileBasicInfoView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileBasicInfoView.m; sourceTree = "<group>"; };
 		32FDBF1C1F80478B00B1C9EB /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		32FF4A2C1F644A0900F4C97F /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
@@ -167,15 +166,12 @@
 		323461071F7882B900AEDC30 /* Products */ = {
 			isa = PBXGroup;
 			children = (
+				329289B11FA5800D0002ECE9 /* libAWSAPIGateway.a */,
 				323461141F7882B900AEDC30 /* libAWSCognito.a */,
 				323461161F7882B900AEDC30 /* libAWSCognitoIdentityProvider.a */,
 				323461181F7882B900AEDC30 /* libAWSCore.a */,
 				3234611A1F7882B900AEDC30 /* libAWSDynamoDB.a */,
 				3234611C1F7882B900AEDC30 /* libAWSS3.a */,
-				3234611E1F7882B900AEDC30 /* libAWSSES.a */,
-				323461201F7882B900AEDC30 /* libAWSSimpleDB.a */,
-				323461221F7882B900AEDC30 /* libAWSSNS.a */,
-				323461241F7882B900AEDC30 /* libAWSSQS.a */,
 				323461261F7882B900AEDC30 /* libPods-iff.a */,
 			);
 			name = Products;
@@ -203,6 +199,14 @@
 		32BAD4301F5705B3009BC21E /* iff */ = {
 			isa = PBXGroup;
 			children = (
+				329289C91FA593A90002ECE9 /* PROFILEProfile.h */,
+				329289C11FA593A90002ECE9 /* PROFILEProfile.m */,
+				329289BB1FA5822A0002ECE9 /* PROFILEEmpty.h */,
+				329289B31FA582290002ECE9 /* PROFILEEmpty.m */,
+				329289BC1FA5822A0002ECE9 /* PROFILEIFFClient.h */,
+				329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */,
+				329289931FA4CAE30002ECE9 /* UserProfile.h */,
+				329289921FA4CAE20002ECE9 /* UserProfile.m */,
 				32D02F681F802195000316DB /* QuestionViewController.h */,
 				32D02F671F802195000316DB /* QuestionViewController.m */,
 				32BAD4341F5705B3009BC21E /* AppDelegate.h */,
@@ -222,12 +226,20 @@
 				320B586A1F7FE649005BC816 /* BuildProfileViewController.m */,
 				320B586C1F7FEA7E005BC816 /* BasicInfoViewController.h */,
 				320B586D1F7FEAB8005BC816 /* BasicInfoViewController.m */,
-				32D02F3C1F7FFFE8000316DB /* UserSession.h */,
-				32D02F471F800094000316DB /* UserSession.m */,
 				32FDBF1C1F80478B00B1C9EB /* ProfileViewController.h */,
 				32FDBF271F8047DF00B1C9EB /* ProfileViewController.m */,
 				327174501F8D0D0B0097BFB3 /* SettingViewController.h */,
 				3271745D1F8D0DF90097BFB3 /* SettingViewController.m */,
+				324827531F9BF2770028C6F7 /* NamecardCell.h */,
+				3248275E1F9C2C880028C6F7 /* NamecardCell.m */,
+				32EC5D1D1F9C4172008E3E1E /* ProfileBasicInfoView.h */,
+				32EC5D281F9C41AD008E3E1E /* ProfileBasicInfoView.m */,
+				32D9909C1F9D247000F9837B /* NoRecommendationView.h */,
+				32D990A71F9D251F00F9837B /* NoRecommendationView.m */,
+				3292897A1FA407E10002ECE9 /* ConfirmRegistrationViewController.h */,
+				329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */,
+				329289951FA4EBAF0002ECE9 /* DynamoDBProfieModel.h */,
+				329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */,
 			);
 			path = iff;
 			sourceTree = "<group>";
@@ -243,8 +255,6 @@
 		91578FEEDC93BA5DF9FA0451 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				32D02F4A1F8005FB000316DB /* AWSSimpleDB */,
-				32D02F491F8005FA000316DB /* AWSSQS */,
 				3286D0E11F7EAA590011446E /* AWSCognito */,
 				323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */,
 				323460FA1F7882B800AEDC30 /* AWSCore */,
@@ -367,39 +377,18 @@
 			remoteRef = 3234611B1F7882B900AEDC30 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		3234611E1F7882B900AEDC30 /* libAWSSES.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAWSSES.a;
-			remoteRef = 3234611D1F7882B900AEDC30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		323461201F7882B900AEDC30 /* libAWSSimpleDB.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAWSSimpleDB.a;
-			remoteRef = 3234611F1F7882B900AEDC30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		323461221F7882B900AEDC30 /* libAWSSNS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAWSSNS.a;
-			remoteRef = 323461211F7882B900AEDC30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		323461241F7882B900AEDC30 /* libAWSSQS.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libAWSSQS.a;
-			remoteRef = 323461231F7882B900AEDC30 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		323461261F7882B900AEDC30 /* libPods-iff.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
 			path = "libPods-iff.a";
 			remoteRef = 323461251F7882B900AEDC30 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		329289B11FA5800D0002ECE9 /* libAWSAPIGateway.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSAPIGateway.a;
+			remoteRef = 329289B01FA5800D0002ECE9 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -409,7 +398,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32D02F4B1F8005FB000316DB /* AWSSQS in Resources */,
 				3286D0EC1F7EAA590011446E /* AWSCognito in Resources */,
 				32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */,
 				323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */,
@@ -417,7 +405,6 @@
 				3234612F1F7882BA00AEDC30 /* Manifest.lock in Resources */,
 				323461321F7882BA00AEDC30 /* Local Podspecs in Resources */,
 				3234612C1F7882BA00AEDC30 /* Headers in Resources */,
-				32D02F4C1F8005FB000316DB /* AWSSimpleDB in Resources */,
 				32BAD43E1F5705B3009BC21E /* Assets.xcassets in Resources */,
 				32BAD43C1F5705B3009BC21E /* Main.storyboard in Resources */,
 				323461281F7882BA00AEDC30 /* AWSCore in Resources */,
@@ -484,17 +471,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				329289BF1FA5822A0002ECE9 /* PROFILEIFFClient.m in Sources */,
+				3248275F1F9C2C880028C6F7 /* NamecardCell.m in Sources */,
+				329289971FA4ED1B0002ECE9 /* DynamoDBProfileModel.m in Sources */,
 				32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */,
 				320B586B1F7FE649005BC816 /* BuildProfileViewController.m in Sources */,
+				329289BE1FA5822A0002ECE9 /* PROFILEEmpty.m in Sources */,
 				32BAD4391F5705B3009BC21E /* ViewController.m in Sources */,
-				32D02F481F800094000316DB /* UserSession.m in Sources */,
+				32D990A81F9D251F00F9837B /* NoRecommendationView.m in Sources */,
 				32FDBF281F8047DF00B1C9EB /* ProfileViewController.m in Sources */,
+				329289CA1FA593A90002ECE9 /* PROFILEProfile.m in Sources */,
+				32EC5D291F9C41AD008E3E1E /* ProfileBasicInfoView.m in Sources */,
 				32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */,
 				32D02F691F802195000316DB /* QuestionViewController.m in Sources */,
 				320B586E1F7FEAB8005BC816 /* BasicInfoViewController.m in Sources */,
 				32BAD4331F5705B3009BC21E /* main.m in Sources */,
 				3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */,
+				329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */,
 				32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */,
+				329289941FA4CAE30002ECE9 /* UserProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

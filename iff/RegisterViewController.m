@@ -8,6 +8,7 @@
 
 #import "RegisterViewController.h"
 
+#import "ConfirmRegistrationViewController.h"
 #import "DashboardViewController.h"
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
@@ -25,6 +26,16 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue
+                 sender:(id)sender {
+    if ([@"Confirm" isEqualToString:segue.identifier]) {
+        ConfirmRegistrationViewController *confirmVC = segue.destinationViewController;
+        confirmVC.sentTo = self.sentTo;
+        confirmVC.user = [self.pool getUser:self.userEmailField.text];
+        confirmVC.password = self.userPassword.text;
+    }
+}
+
 - (IBAction)handleRegister:(id)sender {
     
 
@@ -37,15 +48,18 @@
     [attributes addObject:email];
 
     //sign up the user
-    [[self.pool signUp:self.userEmailField.text password:self.userPassword.text userAttributes:attributes validationData:nil] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> * _Nonnull task) {
+    [[self.pool signUp:self.userEmailField.text
+              password:self.userPassword.text
+        userAttributes:attributes
+        validationData:nil]
+     continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserPoolSignUpResponse *> * _Nonnull task) {
         NSLog(@"Successful signUp user: %@",task.result.user.username);
         dispatch_async(dispatch_get_main_queue(), ^{
             if (task.error) {
-//                __weak typeof(self) weakSelf = self;
-                UIAlertController * alert=   [UIAlertController
-                                              alertControllerWithTitle:task.error.userInfo[@"__type"]
-                                              message:task.error.userInfo[@"message"]
-                                              preferredStyle:UIAlertControllerStyleAlert];
+                UIAlertController * alert= [UIAlertController
+                                            alertControllerWithTitle:task.error.userInfo[@"__type"]
+                                            message:task.error.userInfo[@"message"]
+                                            preferredStyle:UIAlertControllerStyleAlert];
                 
                 UIAlertAction* ok = [UIAlertAction
                                      actionWithTitle:@"OK"
@@ -53,7 +67,6 @@
                                      handler:^(UIAlertAction * action)
                                      {
                                          [alert dismissViewControllerAnimated:YES completion:nil];
-//                                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                                      }];
                 
                 [alert addAction:ok];
@@ -61,10 +74,9 @@
                 [self presentViewController:alert animated:YES completion:nil];
             } else if (task.result.user.confirmedStatus != AWSCognitoIdentityUserStatusConfirmed) {
                 self.sentTo = task.result.codeDeliveryDetails.destination;
-                //[self performSegueWithIdentifier:@"cancelRegister" sender:sender];
+                [self performSegueWithIdentifier:@"Confirm" sender:sender];
             } else {
-                //[self presentViewController:self.navigationController.viewControllers[2] animated:YES completion:nil];
-                [self performSegueWithIdentifier:@"AddInfo" sender:sender];
+                [self.navigationController popToRootViewControllerAnimated:YES];
             }});
         return nil;
     }];

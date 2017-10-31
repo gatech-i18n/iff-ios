@@ -155,14 +155,14 @@
  
  @return NSArray of AWSCognitoRecord objects
  */
-- (NSArray<AWSCognitoRecord *> *)getAllRecords;
+- (NSArray *)getAllRecords;
 
 /**
  Returns all the key value pairs in the dataset, ignore any deleted data.
  
  @return NSDictionary of all key value pairs. Contains no metadata.
  */
-- (NSDictionary<NSString *, NSString *> *)getAll;
+- (NSDictionary *)getAll;
 
 /**
  Remove a record from the dataset.

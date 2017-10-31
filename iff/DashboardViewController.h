@@ -9,4 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface DashboardViewController : UIViewController
+@property (strong, nonatomic) IBOutlet UIView *view;
+
 @end

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -133,10 +133,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
  *Swift*
 
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-         AWSServiceManager.default().defaultServiceConfiguration = configuration
+         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
          return true
      }
@@ -157,7 +157,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
  *Swift*
 
-     let DynamoDBObjectMapper = AWSDynamoDBObjectMapper.default()
+     let DynamoDBObjectMapper = AWSDynamoDBObjectMapper.defaultDynamoDBObjectMapper()
 
  *Objective-C*
 
@@ -174,12 +174,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
  *Swift*
 
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         let objectMapperConfiguration = AWSDynamoDBObjectMapperConfiguration()
- 
-         AWSDynamoDBObjectMapper.register(with: configuration!, objectMapperConfiguration: objectMapperConfigration, forKey: "USWest2DynamoDBObjectMapper")
+         AWSDynamoDBObjectMapper.registerDynamoDBObjectMapperWithConfiguration(configuration, forKey: "USWest2DynamoDBObjectMapper")
 
          return true
      }
@@ -191,11 +189,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
                                                                                                          identityPoolId:@"YourIdentityPoolId"];
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
-         AWSDynamoDBObjectMapperConfiguration objectMapperConfiguration = [[AWSDynamoDBObjectMapperConfiguration alloc] init];
- 
-         [AWSDynamoDBObjectMapper registerDynamoDBObjectMapperWithConfiguration:configuration
-                                                      objectMapperConfiguration:objectMapperConfiguration
-                                                                         forKey:@"USWest2DynamoDBObjectMapper"];
+
+         [AWSDynamoDBObjectMapper registerDynamoDBObjectMapperWithConfiguration:configuration forKey:@"USWest2DynamoDBObjectMapper"];
 
          return YES;
      }
@@ -227,12 +222,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
 
  *Swift*
 
-     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         let objectMapperConfiguration = AWSDynamoDBObjectMapperConfiguration()
- 
-         AWSDynamoDBObjectMapper.register(with: configuration!, objectMapperConfiguration: objectMapperConfigration, forKey: "USWest2DynamoDBObjectMapper")
+         AWSDynamoDBObjectMapper.registerDynamoDBObjectMapperWithConfiguration(configuration, forKey: "USWest2DynamoDBObjectMapper")
 
          return true
      }
@@ -244,11 +237,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBObjectMapperSaveBehavior) {
                                                                                                          identityPoolId:@"YourIdentityPoolId"];
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
-         AWSDynamoDBObjectMapperConfiguration objectMapperConfiguration = [[AWSDynamoDBObjectMapperConfiguration alloc] init];
- 
-         [AWSDynamoDBObjectMapper registerDynamoDBObjectMapperWithConfiguration:configuration
-                                                      objectMapperConfiguration:objectMapperConfiguration
-                                                                         forKey:@"USWest2DynamoDBObjectMapper"];
+
+         [AWSDynamoDBObjectMapper registerDynamoDBObjectMapperWithConfiguration:configuration forKey:@"USWest2DynamoDBObjectMapper"];
 
          return YES;
      }

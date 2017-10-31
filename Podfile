@@ -1,5 +1,5 @@
 # Uncomment the next line to define a global platform for your project
-# platform :ios, '9.0'
+# platform :ios, '10.0'
 
 target 'iff' do
   # Uncomment the next line if you're using Swift or would like to use dynamic frameworks
@@ -7,12 +7,10 @@ target 'iff' do
 
   # Pods for iff
     pod 'AWSCognito'
+    pod 'AWSCognitoAuth'
     pod 'AWSCognitoIdentityProvider'
     pod 'AWSDynamoDB'
     pod 'AWSS3'
-    pod 'AWSSES'
-    pod 'AWSSimpleDB'
-    pod 'AWSSNS'
-    pod 'AWSSQS'
+    pod 'AWSAPIGateway', '~> 2.4.7'
 
 end

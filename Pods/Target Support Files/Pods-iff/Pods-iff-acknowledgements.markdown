@@ -1,7 +1,17 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
+## AWSAPIGateway
+
+The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
+
+
 ## AWSCognito
+
+The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
+
+
+## AWSCognitoAuth
 
 The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
 
@@ -22,26 +32,6 @@ The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, w
 
 
 ## AWSS3
-
-The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
-
-
-## AWSSES
-
-The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
-
-
-## AWSSNS
-
-The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
-
-
-## AWSSQS
-
-The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
-
-
-## AWSSimpleDB
 
 The AWS Mobile SDK for iOS is generally licensed under the Apache 2.0 License, with the Amazon Cognito Identity Provider and Amazon Cognito Sync subcomponents being licensed under the Amazon Software License and the AWSLex/Bluefront folder under the AWS Customer Agreement (https://aws.amazon.com/agreement/ ). 
 

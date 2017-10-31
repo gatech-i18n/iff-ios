@@ -1,5 +1,5 @@
 //
-// Copyright 2014-2017 Amazon.com,
+// Copyright 2014-2016 Amazon.com,
 // Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Amazon Software License (the "License").
@@ -43,12 +43,9 @@ static const NSString * AWSCognitoIdentityUserPoolCurrentUser = @"currentUser";
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 static NSString *const AWSInfoCognitoUserPool = @"CognitoUserPool";
-static NSString *const AWSCognitoUserPoolIdLegacy = @"CognitoUserPoolId";
-static NSString *const AWSCognitoUserPoolAppClientIdLegacy = @"CognitoUserPoolAppClientId";
-static NSString *const AWSCognitoUserPoolAppClientSecretLegacy = @"CognitoUserPoolAppClientSecret";
-static NSString *const AWSCognitoUserPoolId = @"PoolId";
-static NSString *const AWSCognitoUserPoolAppClientId = @"AppClientId";
-static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
+static NSString *const AWSCognitoUserPoolId = @"CognitoUserPoolId";
+static NSString *const AWSCognitoUserPoolAppClientId = @"CognitoUserPoolAppClientId";
+static NSString *const AWSCognitoUserPoolAppClientSecret = @"CognitoUserPoolAppClientSecret";
 
 + (void)loadCategories {
     static dispatch_once_t onceToken;
@@ -69,9 +66,9 @@ static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
                                                                credentialsProvider:nil];
         }
         
-        NSString *poolId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolId] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolIdLegacy];
-        NSString *clientId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientId] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientIdLegacy];
-        NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecretLegacy];
+        NSString *poolId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolId];
+        NSString *clientId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientId];
+        NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret];
         
         if (poolId && clientId && clientSecret) {
             AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
@@ -250,7 +247,7 @@ static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
         return nil;
 
     const char *cKey  = [self.userPoolConfiguration.clientSecret cStringUsingEncoding:NSASCIIStringEncoding];
-    const char *cData = [[userName stringByAppendingString:self.userPoolConfiguration.clientId] cStringUsingEncoding:NSUTF8StringEncoding];
+    const char *cData = [[userName stringByAppendingString:self.userPoolConfiguration.clientId] cStringUsingEncoding:NSASCIIStringEncoding];
 
     unsigned char cHMAC[CC_SHA256_DIGEST_LENGTH];
 

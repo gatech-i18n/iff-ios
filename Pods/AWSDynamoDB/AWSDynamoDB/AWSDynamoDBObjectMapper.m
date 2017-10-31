@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 #import "AWSDynamoDBObjectMapper.h"
 #import "AWSDynamoDB.h"
 #import "AWSBolts.h"
-#import "AWSCocoaLumberjack.h"
+#import "AWSLogging.h"
 #import "AWSSynchronizedMutableDictionary.h"
 #import "AWSCategory.h"
 
@@ -384,6 +384,11 @@ completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandl
   configuration:configuration] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
         if (completionHandler) {
             completionHandler(error);
         }
@@ -416,6 +421,11 @@ completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandl
     [[self remove:model
     configuration:configuration] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
 
         if (completionHandler) {
             completionHandler(error);
@@ -498,6 +508,11 @@ completionHandler:(void (^ _Nullable)(AWSDynamoDBObjectModel<AWSDynamoDBModeling
   configuration:configuration] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         id response = task.result;
         NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
 
         if (completionHandler) {
             completionHandler(response, error);
@@ -625,6 +640,11 @@ completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable res
         AWSDynamoDBPaginatedOutput *response = task.result;
         NSError *error = task.error;
 
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
         if (completionHandler) {
             completionHandler(response, error);
         }
@@ -720,6 +740,11 @@ completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable res
   configuration:configuration] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBPaginatedOutput *> * _Nonnull task) {
         AWSDynamoDBPaginatedOutput *response = task.result;
         NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
 
         if (completionHandler) {
             completionHandler(response, error);
@@ -921,6 +946,11 @@ completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable res
     [[self loadNextPage] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
+
         if (completionHandler) {
             completionHandler(error);
         }
@@ -936,6 +966,11 @@ completionHandler:(void (^ _Nullable)(AWSDynamoDBPaginatedOutput * _Nullable res
 - (void)reloadWithCompletionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler {
     [[self reload] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
+
+        if (task.exception) {
+            AWSLogError(@"Fatal exception: [%@]", task.exception);
+            kill(getpid(), SIGKILL);
+        }
 
         if (completionHandler) {
             completionHandler(error);

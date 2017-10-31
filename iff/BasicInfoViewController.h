@@ -8,7 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class AWSCognitoIdentityUser;
+@class UserProfile;
+
 @interface BasicInfoViewController : UIViewController
+
+@property (nonatomic, strong) UserProfile *userProfile;
+@property (nonatomic, strong) AWSCognitoIdentityUser * user;
+
 
 @end
 

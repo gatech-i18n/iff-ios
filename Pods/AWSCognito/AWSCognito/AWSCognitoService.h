@@ -20,10 +20,7 @@
 #import "AWSCognitoHandlers.h"
 #import "AWSCognitoSyncService.h"
 
-NS_ASSUME_NONNULL_BEGIN
-
 @class AWSCognitoDataset;
-@class AWSCognitoDatasetMetadata;
 @class AWSCognitoCredentialsProvider;
 @class AWSTask;
 
@@ -175,7 +172,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: credentialProvider)
-         AWSServiceManager.default().defaultServiceConfiguration = configuration
+         AWSServiceManager.defaultServiceManager().defaultServiceConfiguration = configuration
 
          return true
      }
@@ -196,7 +193,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
 
  *Swift*
 
-     let Cognito = AWSCognito.default()
+     let Cognito = AWSCognito.defaultCognito()
 
  *Objective-C*
 
@@ -216,7 +213,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSCognito.register(with: configuration!, forKey: "USWest2Cognito")
+         AWSCognito.registerCognitoWithConfiguration(configuration, forKey: "USWest2Cognito")
 
          return true
      }
@@ -261,7 +258,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         AWSCognito.register(with: configuration!, forKey: "USWest2Cognito")
+         AWSCognito.registerCognitoWithConfiguration(configuration, forKey: "USWest2Cognito")
 
          return true
      }
@@ -317,13 +314,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
  
  @return NSArray of AWSCognitoDatasetMetadata
  */
-- (NSArray<AWSCognitoDatasetMetadata *> *)listDatasets;
+- (NSArray *)listDatasets;
 
 /**
  List all of the datasets.  Returns a AWSTask. The result of this task will be an array of 
  AWSCognitoDatasetMetadata objects.
  */
-- (AWSTask<NSArray<AWSCognitoDatasetMetadata *> *> *)refreshDatasetMetadata;
+- (AWSTask *)refreshDatasetMetadata;
 
 /**
  Wipe all cached data.
@@ -369,7 +366,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
  at least once prior to calling this. Returns a AWSTask.  The result of this task will be a NSArray of
  AWSCognitoSyncSubscribeToDatasetResponse
  */
-- (AWSTask *)subscribe:(NSArray<NSString *> *) datasetNames;
+- (AWSTask *)subscribe:(NSArray *) datasetNames;
 
 /**
  Subscribe to all datasets you have locally.  Make sure you have called synchronize on all of your local datasets
@@ -382,7 +379,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
  Unsubscribe to a list of datasets. Returns a AWSTask.  The result of this task will be a NSArray of
  AWSCognitoSyncUnsubscribeToDatasetResponse
  */
-- (AWSTask *)unsubscribe:(NSArray<NSString *> *) datasetNames;
+- (AWSTask *)unsubscribe:(NSArray *) datasetNames;
 
 /**
  Unsubscribe to all datasets you have locally.  Make sure you have called synchronize on all of your local datasets
@@ -392,5 +389,3 @@ typedef NS_ENUM(NSInteger, AWSCognitoErrorType) {
 - (AWSTask *)unsubscribeAll;
 
 @end
-
-NS_ASSUME_NONNULL_END

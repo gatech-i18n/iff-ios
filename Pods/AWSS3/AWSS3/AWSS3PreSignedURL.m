@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2016 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 #import "AWSS3PreSignedURL.h"
 #import "AWSCategory.h"
 #import "AWSSignature.h"
-#import "AWSCocoaLumberjack.h"
+#import "AWSLogging.h"
 #import "AWSBolts.h"
 #import "AWSSynchronizedMutableDictionary.h"
 #import <CommonCrypto/CommonCrypto.h>
@@ -26,7 +26,7 @@ NSString *const AWSS3PresignedURLErrorDomain = @"com.amazonaws.AWSS3PresignedURL
 static NSString *const AWSS3PreSignedURLBuilderAcceleratedEndpoint = @"s3-accelerate.amazonaws.com";
 
 static NSString *const AWSInfoS3PreSignedURLBuilder = @"S3PreSignedURLBuilder";
-static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.6.1";
+static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.4.16";
 
 @interface AWSS3PreSignedURLBuilder()
 
@@ -37,12 +37,6 @@ static NSString *const AWSS3PreSignedURLBuilderSDKVersion = @"2.6.1";
 @interface AWSServiceConfiguration()
 
 @property (nonatomic, strong) AWSEndpoint *endpoint;
-
-@end
-
-@interface AWSEndpoint()
-
-- (void) setRegion:(AWSRegionType)regionType service:(AWSServiceType)serviceType;
 
 @end
 
@@ -130,15 +124,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-        
-        if(!configuration.endpoint){
-            _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
-                                                                  service:AWSServiceS3
-                                                             useUnsafeURL:NO];
-        }else{
-            [_configuration.endpoint setRegion:_configuration.regionType
-                                       service:AWSServiceS3];
-        }
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+                                                              service:AWSServiceS3
+                                                         useUnsafeURL:NO];
     }
 
     return self;
