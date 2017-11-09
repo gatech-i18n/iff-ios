@@ -172,11 +172,21 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  
  
+ @param authorization 
  @param body 
  
  return type: PROFILEEmpty *
  */
-- (AWSTask *)profilePost:( PROFILEProfile *)body;
+- (AWSTask *)profilePost:( NSString *)authorization body:( PROFILEProfile *)body;
+
+/**
+ 
+ 
+ @param username 
+ 
+ return type: PROFILEEmpty *
+ */
+- (AWSTask *)profileUsernameGet:( NSString *)username;
 
 @end
 

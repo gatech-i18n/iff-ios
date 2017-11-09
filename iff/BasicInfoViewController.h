@@ -14,8 +14,8 @@
 @interface BasicInfoViewController : UIViewController
 
 @property (nonatomic, strong) UserProfile *userProfile;
-@property (nonatomic, strong) AWSCognitoIdentityUser * user;
-
+@property (nonatomic, strong) AWSCognitoIdentityUser *user;
+@property (nonatomic, strong) AWSCognitoIdentityUserSession *session;
 
 @end
 

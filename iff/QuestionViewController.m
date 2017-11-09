@@ -3,13 +3,14 @@
 #import "PROFILEIFFClient.h"
 #import "PROFILEProfile.h"
 
+#import <AWSCore/AWSTask.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @interface QuestionViewController() {
     NSArray *_countries;
 }
-@property (nonatomic, strong) AWSCognitoIdentityUser * user;
-@property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
+@property (nonatomic, strong) AWSCognitoIdentityUser *user;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool *pool;
 @end
 
 @implementation QuestionViewController
@@ -26,6 +27,14 @@
     if(!self.user) {
         self.user = [self.pool currentUser];
     }
+//    [[self.user getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+//        if (task.error) {
+//            NSLog(@"%@", task.error);
+//        } else {
+//            self.session = task.result;
+//        }
+//        return nil;
+//    }];
     
 //    _answer = [_countries objectAtIndex:[self.countryPicker selectedRowInComponent:0]];
 }
@@ -61,7 +70,7 @@
     profile.favoriteThings = @"eat and sleep";
     profile.favoriteCountry = @"nowhere";
     
-    [[profileAPI profilePost:profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[profileAPI profilePost:[self.session.idToken tokenString] body:profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:task.error.userInfo[@"x-cache"]

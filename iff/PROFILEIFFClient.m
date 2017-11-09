@@ -149,10 +149,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (AWSTask *)profilePost:(PROFILEProfile *)body {
+- (AWSTask *)profilePost:(NSString *)authorization body:(PROFILEProfile *)body {
     NSDictionary *headerParameters = @{
                                        @"Content-Type": @"application/json",
                                        @"Accept": @"application/json",
+                                       @"Authorization": authorization,
                                        
                                        };
     NSDictionary *queryParameters = @{
@@ -168,6 +169,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:body
+                     responseClass:[PROFILEEmpty class]];
+}
+
+- (AWSTask *)profileUsernameGet:(NSString *)username {
+    NSDictionary *headerParameters = @{
+                                       @"Content-Type": @"application/json",
+                                       @"Accept": @"application/json",
+                                       
+                                       };
+    NSDictionary *queryParameters = @{
+                                      
+                                      };
+    NSDictionary *pathParameters = @{
+                                     @"username": username
+                                     };
+    
+    return [self invokeHTTPRequest:@"GET"
+                         URLString:@"/profile/{username}"
+                    pathParameters:pathParameters
+                   queryParameters:queryParameters
+                  headerParameters:headerParameters
+                              body:nil
                      responseClass:[PROFILEEmpty class]];
 }
 

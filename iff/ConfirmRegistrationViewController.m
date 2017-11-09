@@ -20,10 +20,17 @@
 
 #pragma mark - Navigation
 
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"BuildProfile"]) {
+        BasicInfoViewController *infoVC = [segue destinationViewController];
+        infoVC.session = (AWSCognitoIdentityUserSession *)sender;
+    }
+}
+
 - (IBAction)confirm:(id)sender {
     [[self.user confirmSignUp:self.codeField.text forceAliasCreation:YES] continueWithBlock: ^id _Nullable(AWSTask<AWSCognitoIdentityUserConfirmSignUpResponse *> * _Nonnull task) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            if(task.error){
+            if (task.error){
                     UIAlertController * alert= [UIAlertController
                                                 alertControllerWithTitle:task.error.userInfo[@"__type"]
                                                 message:task.error.userInfo[@"message"]
@@ -40,22 +47,31 @@
                     [alert addAction:ok];
                     
                     [self presentViewController:alert animated:YES completion:nil];
-            }else {
-                UIAlertController * alert= [UIAlertController
-                                            alertControllerWithTitle:@"You have finished!"
-                                            message:@"Now you can use your email address and password to sign in!"
-                                            preferredStyle:UIAlertControllerStyleAlert];
-                
-                UIAlertAction* ok = [UIAlertAction
-                                     actionWithTitle:@"OK"
-                                     style:UIAlertActionStyleDefault
-                                     handler:^(UIAlertAction * action)
-                                     {
-                                         [self.navigationController popToRootViewControllerAnimated:YES];
-                                     }];
-                
-                [alert addAction:ok];
-                [self presentViewController:alert animated:YES completion:nil];
+            } else {
+                [[self. user getSession:_username password:_password validationData:nil] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+                    if (task.error) {
+                        NSLog(@"%@", task.error);
+                    } else {
+                        [self performSegueWithIdentifier:@"BuildProfile" sender:task.result];
+                    }
+                    return nil;
+                }];
+
+//                UIAlertController * alert= [UIAlertController
+//                                            alertControllerWithTitle:@"You have finished!"
+//                                            message:@"Now you can use your email address and password to sign in!"
+//                                            preferredStyle:UIAlertControllerStyleAlert];
+//
+//                UIAlertAction* ok = [UIAlertAction
+//                                     actionWithTitle:@"OK"
+//                                     style:UIAlertActionStyleDefault
+//                                     handler:^(UIAlertAction * action)
+//                                     {
+//                                         [self.navigationController popToRootViewControllerAnimated:YES];
+//                                     }];
+//
+//                [alert addAction:ok];
+//                [self presentViewController:alert animated:YES completion:nil];
             }
         });
         return nil;

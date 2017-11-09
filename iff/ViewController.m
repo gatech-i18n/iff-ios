@@ -53,8 +53,6 @@
 
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
-            [[pool currentUser] getSession:_userEmailField.text password:_userPasswordField.text validationData:nil];
             [self performSegueWithIdentifier:@"AddInfo" sender:nil];
 //            [self dismissViewControllerAnimated:YES completion:nil];
         }

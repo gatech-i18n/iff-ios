@@ -17,6 +17,7 @@
 		323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */ = {isa = PBXBuildFile; fileRef = 323461021F7882B900AEDC30 /* AWSDynamoDB */; };
 		323461311F7882BA00AEDC30 /* AWSCognitoIdentityProvider in Resources */ = {isa = PBXBuildFile; fileRef = 323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */; };
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
+		3245C9771FA94CC900489119 /* AWSCognitoAuth in Resources */ = {isa = PBXBuildFile; fileRef = 3245C96C1FA94CC900489119 /* AWSCognitoAuth */; };
 		3248275F1F9C2C880028C6F7 /* NamecardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248275E1F9C2C880028C6F7 /* NamecardCell.m */; };
 		3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3271745D1F8D0DF90097BFB3 /* SettingViewController.m */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
@@ -84,6 +85,13 @@
 			remoteGlobalIDString = 7F95DEEEB5BD499E40EBF505A7286DC8;
 			remoteInfo = "Pods-iff";
 		};
+		3245C9751FA94CC900489119 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 1E98420E32355153BBCC126E0E891876;
+			remoteInfo = AWSCognitoAuth;
+		};
 		329289B01FA5800D0002ECE9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 323461061F7882B900AEDC30 /* Pods.xcodeproj */;
@@ -108,6 +116,7 @@
 		323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoIdentityProvider; path = Pods/AWSCognitoIdentityProvider; sourceTree = "<group>"; };
 		323461041F7882B900AEDC30 /* Local Podspecs */ = {isa = PBXFileReference; lastKnownFileType = folder; name = "Local Podspecs"; path = "Pods/Local Podspecs"; sourceTree = "<group>"; };
 		323461061F7882B900AEDC30 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
+		3245C96C1FA94CC900489119 /* AWSCognitoAuth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoAuth; path = Pods/AWSCognitoAuth; sourceTree = "<group>"; };
 		324827531F9BF2770028C6F7 /* NamecardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamecardCell.h; sourceTree = "<group>"; };
 		3248275E1F9C2C880028C6F7 /* NamecardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamecardCell.m; sourceTree = "<group>"; };
 		327174501F8D0D0B0097BFB3 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
@@ -168,6 +177,7 @@
 			children = (
 				329289B11FA5800D0002ECE9 /* libAWSAPIGateway.a */,
 				323461141F7882B900AEDC30 /* libAWSCognito.a */,
+				3245C9761FA94CC900489119 /* libAWSCognitoAuth.a */,
 				323461161F7882B900AEDC30 /* libAWSCognitoIdentityProvider.a */,
 				323461181F7882B900AEDC30 /* libAWSCore.a */,
 				3234611A1F7882B900AEDC30 /* libAWSDynamoDB.a */,
@@ -255,6 +265,7 @@
 		91578FEEDC93BA5DF9FA0451 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
+				3245C96C1FA94CC900489119 /* AWSCognitoAuth */,
 				3286D0E11F7EAA590011446E /* AWSCognito */,
 				323461031F7882B900AEDC30 /* AWSCognitoIdentityProvider */,
 				323460FA1F7882B800AEDC30 /* AWSCore */,
@@ -384,6 +395,13 @@
 			remoteRef = 323461251F7882B900AEDC30 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		3245C9761FA94CC900489119 /* libAWSCognitoAuth.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libAWSCognitoAuth.a;
+			remoteRef = 3245C9751FA94CC900489119 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		329289B11FA5800D0002ECE9 /* libAWSAPIGateway.a */ = {
 			isa = PBXReferenceProxy;
 			fileType = archive.ar;
@@ -398,6 +416,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3245C9771FA94CC900489119 /* AWSCognitoAuth in Resources */,
 				3286D0EC1F7EAA590011446E /* AWSCognito in Resources */,
 				32BAD4411F5705B3009BC21E /* LaunchScreen.storyboard in Resources */,
 				323461301F7882BA00AEDC30 /* AWSDynamoDB in Resources */,
