@@ -29,6 +29,9 @@
 @property (nonatomic, strong, nullable) NSString *gender;
 
 
+@property (nonatomic, strong, nullable) NSString *homeCountry;
+
+
 @property (nonatomic, strong, nullable) NSString *reason;
 
 
