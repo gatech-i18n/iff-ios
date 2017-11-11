@@ -9,7 +9,6 @@
 #import "DashboardViewController.h"
 
 #import "NamecardCell.h"
-#import "NoRecommendationView.h"
 #import "PROFILEProfile.h"
 #import "PROFILEIFFClient.h"
 #import "ProfileViewController.h"
@@ -117,31 +116,39 @@
 }
 
 - (IBAction)accept:(id)sender {
+    __weak typeof(self) weakSelf = self;
     UIAlertController * alert= [UIAlertController
                                 alertControllerWithTitle:@"Congratulations"
-                                message:@"You have accepted the recommendation!"
+                                message:@"You are going to accept the recommendation and have a new friend!"
                                 preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* ok = [UIAlertAction
-                         actionWithTitle:@"OK"
+                         actionWithTitle:@"Accept"
+                         style:UIAlertActionStyleDefault
+                         handler:^(UIAlertAction * action)
+                         {
+                             [weakSelf.buttonView setHidden:YES];
+                             [alert dismissViewControllerAnimated:YES completion:nil];
+                         }];
+    UIAlertAction* cancel = [UIAlertAction
+                         actionWithTitle:@"Cancel"
                          style:UIAlertActionStyleDefault
                          handler:^(UIAlertAction * action)
                          {
                              [alert dismissViewControllerAnimated:YES completion:nil];
                          }];
-    
     [alert addAction:ok];
+    [alert addAction:cancel];
     
     [self presentViewController:alert animated:YES completion:nil];
 }
 
 - (IBAction)reject:(id)sender {
 
-//    [self.view reloadInputViews];
     __weak typeof(self) weakSelf = self;
     UIAlertController * alert= [UIAlertController
                                 alertControllerWithTitle:@"Warning"
-                                message:@"You have rejected the recommendation and will have to wait for 3 days for next available match!"
+                                message:@"You will need to wait for 3 days before we can find you another match!"
                                 preferredStyle:UIAlertControllerStyleAlert];
     
     UIAlertAction* confirmReject = [UIAlertAction

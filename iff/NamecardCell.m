@@ -46,11 +46,5 @@
     _profileImage.backgroundColor = [UIColor whiteColor];
 }
 
-- (IBAction)accept:(id)sender {
-    [self.buttonView setHidden:YES];
-    [self layoutSubviews];
-
-}
-
 @end
 

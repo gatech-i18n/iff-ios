@@ -15,5 +15,6 @@
 @property (strong, nonatomic) NSString *recommendedUsername;
 @property (strong, nonatomic) NSString *penalty;
 @property (strong, nonatomic) IBOutlet UIView *namecard;
+@property (strong, nonatomic) IBOutlet UIView *buttonView;
 
 @end
