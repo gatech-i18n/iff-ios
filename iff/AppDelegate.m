@@ -1,12 +1,7 @@
-//
-//  AppDelegate.m
-//  iff
-//
-//  Created by tomoreoreo on 8/30/17.
-//  Copyright © 2017 tomoreoreo. All rights reserved.
-//
-
 #import "AppDelegate.h"
+
+#import <AWSCore/AWSCore.h>
+#import <AWSCognito/AWSCognito.h>
 
 @interface AppDelegate ()
 
@@ -17,6 +12,30 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+                                                                                credentialsProvider:nil];
+    //create a pool
+    AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
+                                                              initWithClientId:@"n8drbgi9bsc0cbidielauoe57"
+                                                              clientSecret:@"1m8vpr4t90ihq3g4k9h9mj25q18tn950s45861qbga55qprvu3f4"
+                                                              poolId:@"us-east-1_EFO1NAwjc"];
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = serviceConfiguration;
+    [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration
+                                                           userPoolConfiguration:configuration
+                                                                          forKey:@"UserPool"];
+    AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+    
+    self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    pool.delegate = self;
+    
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 
@@ -45,6 +64,28 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+}
+
+//set up password authentication ui to retrieve username and password from the user
+- (id<AWSCognitoIdentityPasswordAuthentication>) startPasswordAuthentication {
+    
+    if (!self.navigationController) {
+        self.navigationController = [self.storyboard instantiateViewControllerWithIdentifier:@"SignInController"];
+    }
+    if (!self.signInViewController) {
+        self.signInViewController = (ViewController *)self.navigationController.viewControllers[0];
+    }
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        //rewind to login screen
+        [self.navigationController popToRootViewControllerAnimated:NO];
+        
+        //display login screen if it isn't already visibile
+        if (!(self.navigationController.isViewLoaded && self.navigationController.view.window))  {
+            [self.window.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
+        }
+    });
+    return (id<AWSCognitoIdentityPasswordAuthentication>)self.signInViewController;
 }
 
 

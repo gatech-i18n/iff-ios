@@ -1,0 +1,1 @@
+../../../AWSCognitoAuth/AWSCognitoAuth/Internal/AWSCognitoAuth_Internal.h
