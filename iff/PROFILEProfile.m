@@ -21,9 +21,11 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
              @"profileId": @"ProfileId",
-             @"_description": @"Description",
-             @"favoriteCountry": @"FavoriteCountry",
-             @"favoriteThings": @"FavoriteThings"
+             @"fullName": @"FullName",
+             @"gender": @"Gender",
+             @"reason": @"Reason",
+             @"desiredCountries": @"DesiredCountries",
+             @"interests": @"Interests"
              };
 }
 
