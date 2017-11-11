@@ -7,8 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "NamecardCell.h"
+#import "NoRecommendationView.h"
 
 @interface DashboardViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UIView *view;
+
+@property (strong, nonatomic) NSString *recommendedUsername;
+@property (strong, nonatomic) NSString *penalty;
+@property (strong, nonatomic) IBOutlet UIView *namecard;
 
 @end

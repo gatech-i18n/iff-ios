@@ -21,36 +21,36 @@
     if (!self.user) {
         self.user = [self.pool currentUser];
     }
-//    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
     _profileUsername = _profileUsername == nil ? [self.user username] : _profileUsername;
-//    [[profileAPI profileUsernameGet:@"abc123"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-//        if (task.error) {
-//            UIAlertController * alert=   [UIAlertController
-//                                          alertControllerWithTitle:task.error.userInfo[@"x-cache"]
-//                                          message:task.error.userInfo[@"x-amzn-errortype"]
-//                                          preferredStyle:UIAlertControllerStyleAlert];
-//
-//            UIAlertAction* ok = [UIAlertAction
-//                                 actionWithTitle:@"OK"
-//                                 style:UIAlertActionStyleDefault
-//                                 handler:^(UIAlertAction * action)
-//                                 {
-//                                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
-//                                 }];
-//
-//            [alert addAction:ok];
-//
-//            [self presentViewController:alert animated:YES completion:nil];
-//        } else {
-//            self.profile = task.result;
-//            dispatch_async(dispatch_get_main_queue(), ^{
-//                _intro.text = self.profile._description;
-//
-//            });
-//        }
-//        return nil;
-//    }];
-//    _intro.text = self.profile._description;
+    [[profileAPI profileUsernameGet:@"abc123"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (task.error) {
+            UIAlertController * alert=   [UIAlertController
+                                          alertControllerWithTitle:task.error.userInfo[@"x-cache"]
+                                          message:task.error.userInfo[@"x-amzn-errortype"]
+                                          preferredStyle:UIAlertControllerStyleAlert];
+
+            UIAlertAction* ok = [UIAlertAction
+                                 actionWithTitle:@"OK"
+                                 style:UIAlertActionStyleDefault
+                                 handler:^(UIAlertAction * action)
+                                 {
+                                     [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                 }];
+
+            [alert addAction:ok];
+
+            [self presentViewController:alert animated:YES completion:nil];
+        } else {
+            self.profile = task.result;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                _intro.text = self.profile._description;
+
+            });
+        }
+        return nil;
+    }];
+    _intro.text = self.profile._description;
     
 }
 

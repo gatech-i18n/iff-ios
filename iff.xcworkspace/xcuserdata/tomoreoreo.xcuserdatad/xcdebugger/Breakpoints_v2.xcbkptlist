@@ -74,7 +74,7 @@
                   moduleName = "iff"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/QuestionViewController.m"
-                  timestampString = "532026174.049502"
+                  timestampString = "532072769.508719"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "73"
@@ -89,7 +89,7 @@
                   moduleName = "iff"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/QuestionViewController.m"
-                  timestampString = "532026174.053342"
+                  timestampString = "532072769.511629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "74"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iff/PROFILEIFFClient.m"
-            timestampString = "532026173.968677"
+            timestampString = "532068561.742276"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "188"
@@ -122,45 +122,29 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "iff/DashboardViewController.m"
-            timestampString = "532026173.96875"
+            timestampString = "532073231.918427"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "76"
-            endingLineNumber = "76"
-            landmarkName = "-prepareForSegue:sender:"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-configureBubble"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[DashboardViewController prepareForSegue:sender:]_block_invoke"
-                  moduleName = "iff"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/DashboardViewController.m"
-                  timestampString = "532026174.092088"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "881">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__50-[DashboardViewController prepareForSegue:sender:]_block_invoke.67"
-                  moduleName = "iff"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/tomoreoreo/Documents/GitHub/iff-ios/iff/DashboardViewController.m"
-                  timestampString = "532026174.096486"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "76"
-                  endingLineNumber = "76"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "iff/DashboardViewController.m"
+            timestampString = "532073231.919425"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "49"
+            endingLineNumber = "49"
+            landmarkName = "-configureView"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

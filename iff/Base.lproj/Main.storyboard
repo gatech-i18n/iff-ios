@@ -220,6 +220,9 @@
                                                     <color key="titleColor" red="0.26557503649999997" green="0.78052137310000003" blue="0.731673515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="reject:" destination="LOa-fl-jl4" eventType="touchUpInside" id="Ldr-U2-Ko0"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8rZ-nW-oyw">
                                                 <rect key="frame" x="10" y="3" width="135" height="31"/>
@@ -229,6 +232,10 @@
                                                     <color key="titleColor" red="0.26557503649999997" green="0.78052137310000003" blue="0.731673515" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="accept:" destination="Wqv-1q-cfz" eventType="touchUpInside" id="5WM-fb-orq"/>
+                                                    <action selector="accept:" destination="LOa-fl-jl4" eventType="touchUpInside" id="QLE-YE-hg1"/>
+                                                </connections>
                                             </button>
                                             <view alpha="0.80000000000000004" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gOF-1x-8oq">
                                                 <rect key="frame" x="150" y="9" width="1" height="20"/>
@@ -257,9 +264,11 @@
                             <outlet property="rejectButton" destination="YdC-kp-PRK" id="8Rm-1j-qQx"/>
                         </connections>
                     </view>
-                    <navigationItem key="navigationItem" title="IFF Connect" id="XN5-LE-ycg"/>
+                    <navigationItem key="navigationItem" title="IFF Connect" id="XN5-LE-ycg">
+                        <barButtonItem key="backBarButtonItem" title=" " id="f9I-oE-Zqd"/>
+                    </navigationItem>
                     <connections>
-                        <outlet property="view" destination="Wqv-1q-cfz" id="XWf-PQ-BgU"/>
+                        <outlet property="namecard" destination="vtJ-0p-Mxg" id="cUH-jm-wvj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMJ-5X-832" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -269,12 +278,12 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-550" y="447"/>
+            <point key="canvasLocation" x="-551" y="300"/>
         </scene>
-        <!--View Controller-->
+        <!--IFF Connect-->
         <scene sceneID="gLM-2D-PXe">
             <objects>
-                <viewController id="mlj-uZ-OqS" sceneMemberID="viewController">
+                <viewController id="mlj-uZ-OqS" customClass="DashboardViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="SKF-vq-XR1"/>
                         <viewControllerLayoutGuide type="bottom" id="I2B-K6-O0o"/>
@@ -282,30 +291,16 @@
                     <view key="view" contentMode="scaleToFill" restorationIdentifier="noMatch" id="uqn-ZE-dql" userLabel="noMatch" customClass="NoRecommendationView">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bubble2" translatesAutoresizingMaskIntoConstraints="NO" id="2Xo-MI-NV6">
-                                <rect key="frame" x="0.0" y="129" width="375" height="310"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="We are currently looking for a match..." lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMD-MZ-uYQ">
-                                <rect key="frame" x="110" y="209" width="179" height="57"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.28212030440000002" green="0.28212030440000002" blue="0.28212030440000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="bubble" destination="2Xo-MI-NV6" id="XWo-aO-qxb"/>
-                            <outlet property="notification" destination="VMD-MZ-uYQ" id="msF-rv-nQw"/>
-                        </connections>
                     </view>
-                    <navigationItem key="navigationItem" id="mEu-9s-sZK"/>
+                    <navigationItem key="navigationItem" title="IFF Connect" id="mEu-9s-sZK"/>
+                    <connections>
+                        <outlet property="statusBubble" destination="uqn-ZE-dql" id="56v-Hz-CZg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oBL-PR-8tr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-550" y="1137"/>
+            <point key="canvasLocation" x="-551.20000000000005" y="1136.5817091454273"/>
         </scene>
         <!--Profile-->
         <scene sceneID="5mT-T4-7kl">
@@ -1268,7 +1263,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="LOa-fl-jl4" kind="relationship" relationship="rootViewController" id="zfH-Yt-2C7"/>
+                        <segue destination="LOa-fl-jl4" kind="relationship" relationship="rootViewController" id="xT4-Q1-G2f"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mU4-OK-B1o" userLabel="First Responder" sceneMemberID="firstResponder"/>
