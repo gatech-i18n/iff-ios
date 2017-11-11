@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @param username 
  
- return type: PROFILEEmpty *
+ return type: 
  */
 - (AWSTask *)profileUsernameGet:( NSString *)username;
 

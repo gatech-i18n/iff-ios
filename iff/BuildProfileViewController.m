@@ -16,8 +16,8 @@
                    direction:UIPageViewControllerNavigationDirectionForward
                     animated:NO
                   completion:nil];
-}
 
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

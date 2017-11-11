@@ -191,7 +191,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:[PROFILEEmpty class]];
+                     responseClass:nil];
 }
 
 

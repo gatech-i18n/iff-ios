@@ -10,6 +10,8 @@
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
 
+@class UserProfile;
+
 @interface QuestionViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
 @property NSUInteger questionIndex;
@@ -18,5 +20,6 @@
 @property (nonatomic, strong) AWSCognitoIdentityUserSession *session;
 
 @property (weak, nonatomic) IBOutlet UIPickerView *countryPicker;
+@property (strong, nonatomic) UserProfile *userProfile;
 
 @end

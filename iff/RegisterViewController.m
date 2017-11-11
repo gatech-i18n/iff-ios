@@ -24,8 +24,6 @@
         ConfirmRegistrationViewController *confirmVC = segue.destinationViewController;
         confirmVC.sentTo = self.sentTo;
         confirmVC.user = [self.pool getUser:self.userEmailField.text];
-        confirmVC.password = self.userPassword.text;
-        confirmVC.username = self.userEmailField.text;
     }
 }
 

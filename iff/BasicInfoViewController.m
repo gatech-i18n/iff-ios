@@ -34,5 +34,23 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)continue:(id)sender {
+    UserProfile *updateProfile = [[UserProfile alloc] initWithProfileID:_userProfile.profileID
+                                                                  email:_userProfile.email
+                                                              firstName:_firstName.text
+                                                               lastName:_lastName.text
+                                                                country:_country.text
+                                                         favoriteThings:nil
+                                                                   more:nil];
+    [self performSegueWithIdentifier:@"question" sender:updateProfile];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"question"]) {
+        
+    }
+}
+
+
 @end
 

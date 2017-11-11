@@ -9,6 +9,9 @@
 #import "DashboardViewController.h"
 
 #import "NoRecommendationView.h"
+#import "PROFILEProfile.h"
+#import "PROFILEIFFClient.h"
+#import "ProfileViewController.h"
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
@@ -44,6 +47,39 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"otherprofile"]) {
+        PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+        ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
+        [[profileAPI profileUsernameGet:@"abc123"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            if (task.error) {
+                UIAlertController * alert=   [UIAlertController
+                                              alertControllerWithTitle:task.error.userInfo[@"x-cache"]
+                                              message:task.error.userInfo[@"x-amzn-errortype"]
+                                              preferredStyle:UIAlertControllerStyleAlert];
+                
+                UIAlertAction* ok = [UIAlertAction
+                                     actionWithTitle:@"OK"
+                                     style:UIAlertActionStyleDefault
+                                     handler:^(UIAlertAction * action)
+                                     {
+                                         [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+                                     }];
+                
+                [alert addAction:ok];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            } else {
+                PROFILEProfile *profile = task.result;
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [profileVC configureProfile:profile];
+                });
+            }
+            return nil;
+        }];
+    }
 }
 
 - (void)refresh {

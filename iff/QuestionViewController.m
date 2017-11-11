@@ -27,14 +27,14 @@
     if(!self.user) {
         self.user = [self.pool currentUser];
     }
-//    [[self.user getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
-//        if (task.error) {
-//            NSLog(@"%@", task.error);
-//        } else {
-//            self.session = task.result;
-//        }
-//        return nil;
-//    }];
+    [[self.user getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if (task.error) {
+            NSLog(@"%@", task.error);
+        } else {
+            self.session = task.result;
+        }
+        return nil;
+    }];
     
 //    _answer = [_countries objectAtIndex:[self.countryPicker selectedRowInComponent:0]];
 }
@@ -66,7 +66,7 @@
     
     PROFILEProfile *profile = [PROFILEProfile new];
     profile._description = @"hahaha";
-    profile.profileId = [[NSUUID UUID] UUIDString];
+    profile.profileId = [self.user username];
     profile.favoriteThings = @"eat and sleep";
     profile.favoriteCountry = @"nowhere";
     

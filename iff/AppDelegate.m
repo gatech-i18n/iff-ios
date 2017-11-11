@@ -29,6 +29,13 @@
     self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     pool.delegate = self;
+    
+    
+    UIPageControl *pageControl = [UIPageControl appearance];
+    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
+    pageControl.backgroundColor = [UIColor whiteColor];
+    
     return YES;
 }
 

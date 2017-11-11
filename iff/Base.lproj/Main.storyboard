@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QnY-az-uzc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="QnY-az-uzc">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -239,6 +239,10 @@
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <gestureRecognizers/>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="rQf-5a-IKT" appends="YES" id="KTZ-nE-I5l"/>
+                                </connections>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -259,6 +263,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wMJ-5X-832" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="rQf-5a-IKT">
+                    <connections>
+                        <segue destination="Co2-X1-rhF" kind="show" identifier="otherprofile" id="9zX-z1-Vw7"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-550" y="447"/>
         </scene>
@@ -298,7 +307,7 @@
             </objects>
             <point key="canvasLocation" x="-550" y="1137"/>
         </scene>
-        <!--Me-->
+        <!--Profile-->
         <scene sceneID="5mT-T4-7kl">
             <objects>
                 <tableViewController id="Co2-X1-rhF" customClass="ProfileViewController" sceneMemberID="viewController">
@@ -433,7 +442,16 @@
                             <outlet property="delegate" destination="Co2-X1-rhF" id="Y1S-GL-xh5"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Me" id="fDo-Gs-o7V"/>
+                    <navigationItem key="navigationItem" title="Profile" id="fDo-Gs-o7V"/>
+                    <connections>
+                        <outlet property="country" destination="M5v-P2-3UK" id="K0l-Mg-eYW"/>
+                        <outlet property="email" destination="Q31-sS-Bru" id="VXm-lO-MKX"/>
+                        <outlet property="interest1" destination="ppe-SC-YGV" id="Iuf-fS-B6j"/>
+                        <outlet property="interest2" destination="cDs-5n-KUX" id="Yh3-6d-JMi"/>
+                        <outlet property="interest3" destination="RSX-CQ-wuD" id="IFJ-Gs-gMm"/>
+                        <outlet property="intro" destination="zQy-o2-Oyq" id="bcm-7C-RpF"/>
+                        <outlet property="profileName" destination="hIL-PO-7Lk" id="BFN-Wc-G27"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6yR-2f-P8N" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -843,7 +861,6 @@
                     <connections>
                         <outlet property="codeField" destination="PTo-B3-af6" id="I8S-hk-Okw"/>
                         <outlet property="sentToLabel" destination="n9h-jL-a8C" id="4v6-94-TJm"/>
-                        <segue destination="ZmL-LW-0bL" kind="show" identifier="BuildProfile" id="13Z-LL-4Vm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xi3-Rw-acd" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -926,7 +943,7 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                                 <connections>
-                                    <segue destination="gAj-ca-IRz" kind="show" id="utQ-wE-efw"/>
+                                    <action selector="continue:" destination="ZmL-LW-0bL" eventType="touchUpInside" id="zgM-GU-HuV"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -935,6 +952,12 @@
                     <navigationItem key="navigationItem" title="Add Your Info" id="WMb-d9-p0n">
                         <barButtonItem key="backBarButtonItem" title="Back" id="63I-Ei-0YM"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="country" destination="EeN-0s-W3N" id="dZ9-bc-jh7"/>
+                        <outlet property="firstName" destination="SWc-qd-4wh" id="4WZ-51-4Nr"/>
+                        <outlet property="lastName" destination="y3y-bN-xC9" id="MWt-s8-7wi"/>
+                        <segue destination="gAj-ca-IRz" kind="show" identifier="question" id="cJj-NM-Dsd"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OsO-CQ-CUt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -943,7 +966,7 @@
         <!--Build Profile View Controller-->
         <scene sceneID="EYA-On-q5x">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="h0S-rc-Qdr" customClass="BuildProfileViewController" sceneMemberID="viewController">
+                <pageViewController autoresizesArchivedViewToFullSize="NO" modalTransitionStyle="flipHorizontal" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" doubleSided="YES" id="h0S-rc-Qdr" customClass="BuildProfileViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="P5z-Uy-a1l"/>
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3zw-ta-KQJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1343,7 +1366,7 @@
         <image name="user" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="13Z-LL-4Vm"/>
+        <segue reference="9zX-z1-Vw7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>

@@ -23,7 +23,6 @@
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */; };
 		329289941FA4CAE30002ECE9 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289921FA4CAE20002ECE9 /* UserProfile.m */; };
-		329289971FA4ED1B0002ECE9 /* DynamoDBProfileModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */; };
 		329289BE1FA5822A0002ECE9 /* PROFILEEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289B31FA582290002ECE9 /* PROFILEEmpty.m */; };
 		329289BF1FA5822A0002ECE9 /* PROFILEIFFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */; };
 		329289CA1FA593A90002ECE9 /* PROFILEProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289C11FA593A90002ECE9 /* PROFILEProfile.m */; };
@@ -126,8 +125,6 @@
 		329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmRegistrationViewController.m; sourceTree = "<group>"; };
 		329289921FA4CAE20002ECE9 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
 		329289931FA4CAE30002ECE9 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
-		329289951FA4EBAF0002ECE9 /* DynamoDBProfieModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DynamoDBProfieModel.h; sourceTree = "<group>"; };
-		329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DynamoDBProfileModel.m; sourceTree = "<group>"; };
 		329289B31FA582290002ECE9 /* PROFILEEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROFILEEmpty.m; sourceTree = "<group>"; };
 		329289BB1FA5822A0002ECE9 /* PROFILEEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEEmpty.h; sourceTree = "<group>"; };
 		329289BC1FA5822A0002ECE9 /* PROFILEIFFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEIFFClient.h; sourceTree = "<group>"; };
@@ -248,8 +245,6 @@
 				32D990A71F9D251F00F9837B /* NoRecommendationView.m */,
 				3292897A1FA407E10002ECE9 /* ConfirmRegistrationViewController.h */,
 				329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */,
-				329289951FA4EBAF0002ECE9 /* DynamoDBProfieModel.h */,
-				329289961FA4ED1B0002ECE9 /* DynamoDBProfileModel.m */,
 			);
 			path = iff;
 			sourceTree = "<group>";
@@ -492,7 +487,6 @@
 			files = (
 				329289BF1FA5822A0002ECE9 /* PROFILEIFFClient.m in Sources */,
 				3248275F1F9C2C880028C6F7 /* NamecardCell.m in Sources */,
-				329289971FA4ED1B0002ECE9 /* DynamoDBProfileModel.m in Sources */,
 				32FF4A2E1F644A7800F4C97F /* RegisterViewController.m in Sources */,
 				320B586B1F7FE649005BC816 /* BuildProfileViewController.m in Sources */,
 				329289BE1FA5822A0002ECE9 /* PROFILEEmpty.m in Sources */,

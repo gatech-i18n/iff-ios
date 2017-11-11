@@ -8,14 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+#import "UserProfile.h"
 @class AWSCognitoIdentityUser;
-@class UserProfile;
 
 @interface BasicInfoViewController : UIViewController
 
 @property (nonatomic, strong) UserProfile *userProfile;
 @property (nonatomic, strong) AWSCognitoIdentityUser *user;
-@property (nonatomic, strong) AWSCognitoIdentityUserSession *session;
+@property (strong, nonatomic) IBOutlet UITextField *firstName;
+@property (strong, nonatomic) IBOutlet UITextField *lastName;
+@property (strong, nonatomic) IBOutlet UITextField *country;
 
 @end
 
