@@ -22,9 +22,9 @@
         self.user = [self.pool currentUser];
     }
     PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
-    _profileUsername = _profileUsername == nil ? [self.user username] : _profileUsername;
+    _profileUsername = _profileUsername == nil ? @"test1" : _profileUsername;
     __weak typeof(self) weakSelf = self;
-    [[profileAPI profileUsernameGet:@"test1"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+    [[profileAPI profileUsernameGet:_profileUsername] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:task.error.userInfo[@"x-cache"]

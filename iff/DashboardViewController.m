@@ -64,7 +64,7 @@
         
 //        PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
         ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
-        profileVC.profileUsername = @"abc123";
+        profileVC.profileUsername = @"test2";
 //        [[profileAPI profileUsernameGet:@"abc123"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
 //            if (task.error) {
 //                UIAlertController * alert=   [UIAlertController
