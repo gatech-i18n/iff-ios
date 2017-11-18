@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+#import "DLRadioButton.h"
 #import "UserProfile.h"
 @class AWSCognitoIdentityUser;
 
@@ -18,6 +19,9 @@
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
 @property (strong, nonatomic) IBOutlet UITextField *country;
+@property (strong, nonatomic) IBOutlet DLRadioButton *female;
+@property (strong, nonatomic) IBOutlet DLRadioButton *male;
+@property (strong, nonatomic) IBOutlet DLRadioButton *other;
 
 @end
 

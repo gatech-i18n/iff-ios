@@ -65,10 +65,14 @@
     PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
     
     PROFILEProfile *profile = [PROFILEProfile new];
-    profile._description = @"hahaha";
-    profile.profileId = [self.user username];
-    profile.favoriteThings = @"eat and sleep";
-    profile.favoriteCountry = @"nowhere";
+    
+    profile.profileId = @"test2";
+    profile.fullName = @"Williams Chen";
+    profile.homeCountry = @"United States";
+    profile.gender = @"M";
+    profile.reason = @"I want to explore different cultures!";
+    profile.interests = @[@"basketball", @"eat"];
+    profile.desiredCountries = @[@"China", @"Italy"];
     
     [[profileAPI profilePost:[self.session.idToken tokenString] body:profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {

@@ -131,7 +131,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     if (self = [super init]) {
         _configuration = [configuration copy];
 
-        NSString *URLString = @"https://o25kecn0if.execute-api.us-east-1.amazonaws.com/test";
+        NSString *URLString = @"https://o25kecn0if.execute-api.us-east-1.amazonaws.com/prod";
         if ([URLString hasSuffix:@"/"]) {
             URLString = [URLString substringToIndex:[URLString length] - 1];
         }
@@ -191,7 +191,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:nil];
+                     responseClass:[PROFILEProfile class]];
 }
 
 

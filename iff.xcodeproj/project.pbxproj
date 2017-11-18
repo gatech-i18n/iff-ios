@@ -19,6 +19,7 @@
 		323461321F7882BA00AEDC30 /* Local Podspecs in Resources */ = {isa = PBXBuildFile; fileRef = 323461041F7882B900AEDC30 /* Local Podspecs */; };
 		3245C9771FA94CC900489119 /* AWSCognitoAuth in Resources */ = {isa = PBXBuildFile; fileRef = 3245C96C1FA94CC900489119 /* AWSCognitoAuth */; };
 		3248275F1F9C2C880028C6F7 /* NamecardCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3248275E1F9C2C880028C6F7 /* NamecardCell.m */; };
+		3261890A1FC0B93C00878869 /* DLRadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 326189091FC0B93C00878869 /* DLRadioButton.m */; };
 		3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3271745D1F8D0DF90097BFB3 /* SettingViewController.m */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */; };
@@ -118,6 +119,8 @@
 		3245C96C1FA94CC900489119 /* AWSCognitoAuth */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognitoAuth; path = Pods/AWSCognitoAuth; sourceTree = "<group>"; };
 		324827531F9BF2770028C6F7 /* NamecardCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NamecardCell.h; sourceTree = "<group>"; };
 		3248275E1F9C2C880028C6F7 /* NamecardCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NamecardCell.m; sourceTree = "<group>"; };
+		326189001FC0B93C00878869 /* DLRadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DLRadioButton.h; sourceTree = "<group>"; };
+		326189091FC0B93C00878869 /* DLRadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DLRadioButton.m; sourceTree = "<group>"; };
 		327174501F8D0D0B0097BFB3 /* SettingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
 		3271745D1F8D0DF90097BFB3 /* SettingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
@@ -206,6 +209,8 @@
 		32BAD4301F5705B3009BC21E /* iff */ = {
 			isa = PBXGroup;
 			children = (
+				326189001FC0B93C00878869 /* DLRadioButton.h */,
+				326189091FC0B93C00878869 /* DLRadioButton.m */,
 				329289C91FA593A90002ECE9 /* PROFILEProfile.h */,
 				329289C11FA593A90002ECE9 /* PROFILEProfile.m */,
 				329289BB1FA5822A0002ECE9 /* PROFILEEmpty.h */,
@@ -497,6 +502,7 @@
 				32EC5D291F9C41AD008E3E1E /* ProfileBasicInfoView.m in Sources */,
 				32BAD4361F5705B3009BC21E /* AppDelegate.m in Sources */,
 				32D02F691F802195000316DB /* QuestionViewController.m in Sources */,
+				3261890A1FC0B93C00878869 /* DLRadioButton.m in Sources */,
 				320B586E1F7FEAB8005BC816 /* BasicInfoViewController.m in Sources */,
 				32BAD4331F5705B3009BC21E /* main.m in Sources */,
 				3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */,

@@ -2,6 +2,14 @@
 
 @implementation NamecardCell
 
+-(NamecardCell *)initWithUsername:(NSString *)userName {
+    self = [super init];
+    if (self) {
+        _nameLabel.text = @"userName";
+    }
+    return self;
+}
+
 -(void)layoutSubviews
 {
     [self cardSetup];
@@ -20,9 +28,13 @@
     UIBezierPath *path = [UIBezierPath bezierPathWithRect:self.cardView.bounds];
     self.cardView.layer.shadowPath = path.CGPath;
     self.cardView.frame = CGRectMake(27, 243, 320, 180);
-    self.buttonView.frame = CGRectMake(10, 143, 300, 36);
-    self.buttonView.layer.shadowRadius = 5;
-    self.buttonView.layer.shadowOpacity = 0.2;
+    if (_accepted) {
+        [self.buttonView setHidden:YES];
+    } else {
+        self.buttonView.frame = CGRectMake(10, 143, 300, 36);
+        self.buttonView.layer.shadowRadius = 5;
+        self.buttonView.layer.shadowOpacity = 0.2;
+    }
     
 }
 
@@ -33,7 +45,6 @@
     _profileImage.contentMode = UIViewContentModeScaleAspectFit;
     _profileImage.backgroundColor = [UIColor whiteColor];
 }
-
 
 @end
 

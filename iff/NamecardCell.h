@@ -14,4 +14,8 @@
 @property (weak, nonatomic) IBOutlet UIView *cardView;
 @property (weak, nonatomic) IBOutlet UIImageView *profileImage;
 
+@property (weak, nonatomic) NSString *accepted;
+
+-(NamecardCell *)initWithUsername:(NSString *)userName;
+
 @end
