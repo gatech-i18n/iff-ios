@@ -11,6 +11,10 @@
 }
 @property (nonatomic, strong) AWSCognitoIdentityUser *user;
 @property (nonatomic, strong) AWSCognitoIdentityUserPool *pool;
+@property (nonatomic, strong) NSString *selectedCountry1;
+@property (nonatomic, strong) NSString *selectedCountry2;
+@property (nonatomic, strong) NSString *userid;
+
 @end
 
 @implementation QuestionViewController
@@ -18,15 +22,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    _countries = @[@"United States", @"China", @"United Kindom"];
+    if (_introField) {
+        _introField.delegate = self;
+        _introField.text = @"Tip: A great introduction includes why you are on IFF Connect, your favorite hobbies, and what you would like to share ";
+        _introField.textColor = [UIColor lightGrayColor];
+    }
+    if (_interestField) {
+        _interestField.delegate = self;
+        _interestField.text = @"Please add up to 10 interests. Sperate by commas.";
+        _interestField.textColor = [UIColor lightGrayColor];
+    }
+    _countries = @[@"Japan", @"Canada", @"Spain", @"France", @"Italy", @"Germany", @"Mexico", @"Thailand", @"Morocco", @"Egypt", @"South Africa", @"Brazil", @"Argentina", @"Dominican Republic", @"Chile", @"Puerto Rico", @"Cuba", @"Peru", @"Thailand", @"Malaysia", @"South Korea", @"India", @"Singapore", @"Indonesia", @"Turkey", @"Austria", @"Greece", @"Russia", @"Poland", @"Colombia", @"Panam", @"Costa Rica", @"United States", @"China", @"United Kindom"];
     
-    self.countryPicker.dataSource = self;
-    self.countryPicker.delegate = self;
+    self.countryPicker1.dataSource = self;
+    self.countryPicker1.delegate = self;
+    self.countryPicker2.dataSource = self;
+    self.countryPicker2.delegate = self;
     self.pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
     //on initial load set the user and refresh to get attributes
     if(!self.user) {
         self.user = [self.pool currentUser];
     }
+
     [[self.user getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         if (task.error) {
             NSLog(@"%@", task.error);
@@ -35,8 +52,19 @@
         }
         return nil;
     }];
-    
-//    _answer = [_countries objectAtIndex:[self.countryPicker selectedRowInComponent:0]];
+    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+        if (task.error) {
+            NSLog(@"%@", task.error);
+        } else {
+            [[task.result userAttributes] enumerateObjectsUsingBlock:^(AWSCognitoIdentityProviderAttributeType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.name isEqualToString:@"custom:userid"]) {
+                    self.userid = obj.value;
+                }
+            }];
+            
+        }
+        return nil;
+    }];
 }
 
 
@@ -44,6 +72,8 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+#pragma Picker View Delegate
 
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -61,20 +91,30 @@
     return _countries[row];
 }
 
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component {
+    if (pickerView == _countryPicker1) {
+        _selectedCountry1 = _countries[row];
+    }
+    if (pickerView == _countryPicker2) {
+        _selectedCountry2 = _countries[row];
+    }
+}
+
 - (IBAction)submitProfile:(id)sender {
     PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
     
-    PROFILEProfile *profile = [PROFILEProfile new];
+//    PROFILEProfile *profile = [PROFILEProfile new];
     
-    profile.profileId = @"test2";
-    profile.fullName = @"Williams Chen";
-    profile.homeCountry = @"United States";
-    profile.gender = @"M";
-    profile.reason = @"I want to explore different cultures!";
-    profile.interests = @[@"basketball", @"eat"];
-    profile.desiredCountries = @[@"China", @"Italy"];
-    
-    [[profileAPI profilePost:[self.session.idToken tokenString] body:profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+//    profile.profileId = @"test2";
+//    profile.fullName = @"Williams Chen";
+//    profile.homeCountry = @"United States";
+//    profile.gender = @"M";
+//    profile.reason = @"I want to explore different cultures!";
+//    profile.interests = @[@"basketball", @"eat"];
+//    profile.desiredCountries = @[@"China", @"Italy"];
+    _profile.profileId = _userid;
+    _profile.reason = _introField.text;
+    [[profileAPI profilePost:[self.session.idToken tokenString] body:_profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             UIAlertController * alert=   [UIAlertController
                                           alertControllerWithTitle:task.error.userInfo[@"x-cache"]
@@ -98,6 +138,36 @@
         return nil;
     }];
 
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    QuestionViewController *nextVC = (QuestionViewController *)[segue destinationViewController];
+    if (!_profile) {
+        _profile = [PROFILEProfile new];
+    }
+    if ([segue.identifier isEqualToString:@"addInterests"]) {
+        _profile.desiredCountries = @[_selectedCountry1, _selectedCountry2];
+    } else if ([segue.identifier isEqualToString:@"chooseReason"]) {
+        _profile.interests = @[@""];
+    } else if ([segue.identifier isEqualToString:@"introduction"]) {
+        _profile.reason = @"";
+    }
+    nextVC.profile = _profile;
+}
+
+- (BOOL)textViewShouldBeginEditing:(UITextView *)textView {
+    if (textView.textColor == [UIColor lightGrayColor]) {
+        textView.text = @"";
+        textView.textColor = [UIColor blackColor];
+    }
+    return YES;
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    if ([textView.text isEqualToString:@""]) {
+        textView.text = @"Placeholder";
+        textView.textColor =[UIColor lightGrayColor];
+    }
 }
 
 @end

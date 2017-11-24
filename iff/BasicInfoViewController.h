@@ -9,12 +9,10 @@
 #import <UIKit/UIKit.h>
 
 #import "DLRadioButton.h"
-#import "UserProfile.h"
 @class AWSCognitoIdentityUser;
 
 @interface BasicInfoViewController : UIViewController
 
-@property (nonatomic, strong) UserProfile *userProfile;
 @property (nonatomic, strong) AWSCognitoIdentityUser *user;
 @property (strong, nonatomic) IBOutlet UITextField *firstName;
 @property (strong, nonatomic) IBOutlet UITextField *lastName;
