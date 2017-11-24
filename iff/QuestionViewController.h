@@ -10,16 +10,20 @@
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
 
-@class UserProfile;
+@class PROFILEProfile;
 
-@interface QuestionViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface QuestionViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate>
 
 @property NSUInteger questionIndex;
 
 @property (strong, nonatomic) NSString *answer;
 @property (nonatomic, strong) AWSCognitoIdentityUserSession *session;
 
-@property (weak, nonatomic) IBOutlet UIPickerView *countryPicker;
-@property (strong, nonatomic) UserProfile *userProfile;
+@property (weak, nonatomic) IBOutlet UIPickerView *countryPicker1;
+@property (weak, nonatomic) IBOutlet UIPickerView *countryPicker2;
+
+@property (strong, nonatomic) PROFILEProfile *profile;
+@property (strong, nonatomic) IBOutlet UITextView *interestField;
+@property (strong, nonatomic) IBOutlet UITextView *introField;
 
 @end

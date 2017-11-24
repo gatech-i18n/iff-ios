@@ -32,11 +32,16 @@
 
     NSMutableArray * attributes = [NSMutableArray new];
 
-    AWSCognitoIdentityUserAttributeType * email = [AWSCognitoIdentityUserAttributeType new];
+    AWSCognitoIdentityUserAttributeType *email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
     email.value = _userEmailField.text;
+    
+    AWSCognitoIdentityUserAttributeType *userid = [AWSCognitoIdentityUserAttributeType new];
+    userid.name = @"custom:userid";
+    userid.value = [[NSUUID UUID] UUIDString];
 
     [attributes addObject:email];
+    [attributes addObject:userid];
 
     //sign up the user
     [[self.pool signUp:self.userEmailField.text

@@ -8,6 +8,8 @@
 
 #import "BasicInfoViewController.h"
 
+#import "PROFILEProfile.h"
+#import "QuestionViewController.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h>
 #import <AWSCore/AWSTask.h>
@@ -34,20 +36,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)continue:(id)sender {
-    UserProfile *updateProfile = [[UserProfile alloc] initWithProfileID:_userProfile.profileID
-                                                                  email:_userProfile.email
-                                                              firstName:_firstName.text
-                                                               lastName:_lastName.text
-                                                                country:_country.text
-                                                         favoriteThings:nil
-                                                                   more:nil];
-    [self performSegueWithIdentifier:@"question" sender:updateProfile];
-}
-
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"question"]) {
-        
+        QuestionViewController *vc = (QuestionViewController *)[segue destinationViewController];
+        PROFILEProfile *profile = [PROFILEProfile new];
+        profile.fullName = [_firstName.text stringByAppendingString:_lastName.text];
+        profile.homeCountry = _country.text;
+        profile.gender = _female.selectedButton.titleLabel.text;
+        vc.profile = profile;
     }
 }
 

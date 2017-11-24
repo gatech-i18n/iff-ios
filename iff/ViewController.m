@@ -1,5 +1,6 @@
 #import "ViewController.h"
 
+#import "PROFILEIFFClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h>
 
 @implementation ViewController
@@ -53,8 +54,18 @@
 
             [self presentViewController:alert animated:YES completion:nil];
         } else {
+            PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+            __weak typeof(self) weakSelf = self;
+            [[profileAPI profileUsernameGet:@"test"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+                if (!task.error) {
+                    PROFILEProfile *profile = task.result;
+                    if (profile.fullName.length > 0) {
+                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
+                    }
+                }
+                return nil;
+            }];
             [self performSegueWithIdentifier:@"AddInfo" sender:nil];
-//            [self dismissViewControllerAnimated:YES completion:nil];
         }
     });
 }

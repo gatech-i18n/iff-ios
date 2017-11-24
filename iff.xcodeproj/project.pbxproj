@@ -23,7 +23,6 @@
 		3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3271745D1F8D0DF90097BFB3 /* SettingViewController.m */; };
 		3286D0EC1F7EAA590011446E /* AWSCognito in Resources */ = {isa = PBXBuildFile; fileRef = 3286D0E11F7EAA590011446E /* AWSCognito */; };
 		329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */; };
-		329289941FA4CAE30002ECE9 /* UserProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289921FA4CAE20002ECE9 /* UserProfile.m */; };
 		329289BE1FA5822A0002ECE9 /* PROFILEEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289B31FA582290002ECE9 /* PROFILEEmpty.m */; };
 		329289BF1FA5822A0002ECE9 /* PROFILEIFFClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */; };
 		329289CA1FA593A90002ECE9 /* PROFILEProfile.m in Sources */ = {isa = PBXBuildFile; fileRef = 329289C11FA593A90002ECE9 /* PROFILEProfile.m */; };
@@ -126,8 +125,6 @@
 		3286D0E11F7EAA590011446E /* AWSCognito */ = {isa = PBXFileReference; lastKnownFileType = folder; name = AWSCognito; path = Pods/AWSCognito; sourceTree = "<group>"; };
 		3292897A1FA407E10002ECE9 /* ConfirmRegistrationViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfirmRegistrationViewController.h; sourceTree = "<group>"; };
 		329289851FA4086D0002ECE9 /* ConfirmRegistrationViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ConfirmRegistrationViewController.m; sourceTree = "<group>"; };
-		329289921FA4CAE20002ECE9 /* UserProfile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UserProfile.m; sourceTree = "<group>"; };
-		329289931FA4CAE30002ECE9 /* UserProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UserProfile.h; sourceTree = "<group>"; };
 		329289B31FA582290002ECE9 /* PROFILEEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PROFILEEmpty.m; sourceTree = "<group>"; };
 		329289BB1FA5822A0002ECE9 /* PROFILEEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEEmpty.h; sourceTree = "<group>"; };
 		329289BC1FA5822A0002ECE9 /* PROFILEIFFClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PROFILEIFFClient.h; sourceTree = "<group>"; };
@@ -217,8 +214,6 @@
 				329289B31FA582290002ECE9 /* PROFILEEmpty.m */,
 				329289BC1FA5822A0002ECE9 /* PROFILEIFFClient.h */,
 				329289BD1FA5822A0002ECE9 /* PROFILEIFFClient.m */,
-				329289931FA4CAE30002ECE9 /* UserProfile.h */,
-				329289921FA4CAE20002ECE9 /* UserProfile.m */,
 				32D02F681F802195000316DB /* QuestionViewController.h */,
 				32D02F671F802195000316DB /* QuestionViewController.m */,
 				32BAD4341F5705B3009BC21E /* AppDelegate.h */,
@@ -508,7 +503,6 @@
 				3271745E1F8D0DF90097BFB3 /* SettingViewController.m in Sources */,
 				329289861FA4086D0002ECE9 /* ConfirmRegistrationViewController.m in Sources */,
 				32A61F3E1F639DFE0026310B /* DashboardViewController.m in Sources */,
-				329289941FA4CAE30002ECE9 /* UserProfile.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
