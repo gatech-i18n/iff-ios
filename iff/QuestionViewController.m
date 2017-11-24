@@ -32,7 +32,7 @@
         _interestField.text = @"Please add up to 10 interests. Sperate by commas.";
         _interestField.textColor = [UIColor lightGrayColor];
     }
-    _countries = @[@"Japan", @"Canada", @"Spain", @"France", @"Italy", @"Germany", @"Mexico", @"Thailand", @"Morocco", @"Egypt", @"South Africa", @"Brazil", @"Argentina", @"Dominican Republic", @"Chile", @"Puerto Rico", @"Cuba", @"Peru", @"Thailand", @"Malaysia", @"South Korea", @"India", @"Singapore", @"Indonesia", @"Turkey", @"Austria", @"Greece", @"Russia", @"Poland", @"Colombia", @"Panam", @"Costa Rica", @"United States", @"China", @"United Kindom"];
+    _countries = @[@"Please select a country", @"Japan", @"Canada", @"Spain", @"France", @"Italy", @"Germany", @"Mexico", @"Thailand", @"Morocco", @"Egypt", @"South Africa", @"Brazil", @"Argentina", @"Dominican Republic", @"Chile", @"Puerto Rico", @"Cuba", @"Peru", @"Thailand", @"Malaysia", @"South Korea", @"India", @"Singapore", @"Indonesia", @"Turkey", @"Austria", @"Greece", @"Russia", @"Poland", @"Colombia", @"Panam", @"Costa Rica", @"United States", @"China", @"United Kindom"];
     
     self.countryPicker1.dataSource = self;
     self.countryPicker1.delegate = self;
@@ -102,16 +102,7 @@
 
 - (IBAction)submitProfile:(id)sender {
     PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
-    
-//    PROFILEProfile *profile = [PROFILEProfile new];
-    
-//    profile.profileId = @"test2";
-//    profile.fullName = @"Williams Chen";
-//    profile.homeCountry = @"United States";
-//    profile.gender = @"M";
-//    profile.reason = @"I want to explore different cultures!";
-//    profile.interests = @[@"basketball", @"eat"];
-//    profile.desiredCountries = @[@"China", @"Italy"];
+
     _profile.profileId = _userid;
     _profile.reason = _introField.text;
     [[profileAPI profilePost:[self.session.idToken tokenString] body:_profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -148,7 +139,7 @@
     if ([segue.identifier isEqualToString:@"addInterests"]) {
         _profile.desiredCountries = @[_selectedCountry1, _selectedCountry2];
     } else if ([segue.identifier isEqualToString:@"chooseReason"]) {
-        _profile.interests = @[@""];
+        _profile.interests = [_interestField.text componentsSeparatedByString:@","];
     } else if ([segue.identifier isEqualToString:@"introduction"]) {
         _profile.reason = @"";
     }

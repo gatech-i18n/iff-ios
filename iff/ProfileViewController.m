@@ -38,6 +38,26 @@
    
 }
 
+- (void) viewWillAppear:(BOOL)animated {
+    __weak typeof(self) weakSelf = self;
+    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+        if (task.error) {
+            NSLog(@"%@", task.error);
+        } else {
+            [[task.result userAttributes] enumerateObjectsUsingBlock:^(AWSCognitoIdentityProviderAttributeType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                if ([obj.name isEqualToString:@"custom:userid"]) {
+                    self.userid = obj.value;
+                    *stop = YES;
+                }
+            }];
+            [weakSelf loadProfile];
+        }
+        return nil;
+    }];
+    
+    
+}
+
 - (void) viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setToolbarHidden:YES];

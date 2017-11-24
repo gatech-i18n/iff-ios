@@ -56,7 +56,7 @@
         } else {
             PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
             __weak typeof(self) weakSelf = self;
-            [[profileAPI profileUsernameGet:@"test1"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[profileAPI profileUsernameGet:@"test"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 if (!task.error) {
                     PROFILEProfile *profile = task.result;
                     if (profile.fullName.length > 0) {
