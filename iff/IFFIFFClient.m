@@ -15,13 +15,14 @@
  
 
 
-#import "PROFILEIFFClient.h"
+#import "IFFIFFClient.h"
 #import <AWSCore/AWSCore.h>
 #import <AWSCore/AWSSignature.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 
-#import "PROFILEEmpty.h"
-#import "PROFILEProfile.h"
+#import "IFFProfile.h"
+#import "IFFEmpty.h"
+#import "IFFRecommendation.h"
 
 @interface AWSAPIGatewayClient()
 
@@ -45,7 +46,7 @@
 
 @end
 
-@interface PROFILEIFFClient()
+@interface IFFIFFClient()
 
 @property (nonatomic, strong) AWSServiceConfiguration *configuration;
 
@@ -57,9 +58,9 @@
 
 @end
 
-@implementation PROFILEIFFClient
+@implementation IFFIFFClient
 
-static NSString *const AWSInfoClientKey = @"PROFILEIFFClient";
+static NSString *const AWSInfoClientKey = @"IFFIFFClient";
 
 @synthesize configuration = _configuration;
 
@@ -78,10 +79,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                                                            credentialsProvider:nil];
     }
 
-    static PROFILEIFFClient *_defaultClient = nil;
+    static IFFIFFClient *_defaultClient = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _defaultClient = [[PROFILEIFFClient alloc] initWithConfiguration:serviceConfiguration];
+        _defaultClient = [[IFFIFFClient alloc] initWithConfiguration:serviceConfiguration];
     });
 
     return _defaultClient;
@@ -92,13 +93,13 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     dispatch_once(&onceToken, ^{
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
-    [_serviceClients setObject:[[PROFILEIFFClient alloc] initWithConfiguration:configuration]
+    [_serviceClients setObject:[[IFFIFFClient alloc] initWithConfiguration:configuration]
                         forKey:key];
 }
 
 + (instancetype)clientForKey:(NSString *)key {
     @synchronized(self) {
-        PROFILEIFFClient *serviceClient = [_serviceClients objectForKey:key];
+        IFFIFFClient *serviceClient = [_serviceClients objectForKey:key];
         if (serviceClient) {
             return serviceClient;
         }
@@ -108,7 +109,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
-            [PROFILEIFFClient registerClientWithConfiguration:serviceConfiguration
+            [IFFIFFClient registerClientWithConfiguration:serviceConfiguration
                                                     forKey:key];
         }
 
@@ -149,7 +150,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return self;
 }
 
-- (AWSTask *)profilePost:(NSString *)authorization body:(PROFILEProfile *)body {
+- (AWSTask *)profilePost:(NSString *)authorization body:(IFFProfile *)body {
     NSDictionary *headerParameters = @{
                                        @"Content-Type": @"application/json",
                                        @"Accept": @"application/json",
@@ -169,7 +170,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:body
-                     responseClass:[PROFILEEmpty class]];
+                     responseClass:[IFFEmpty class]];
 }
 
 - (AWSTask *)profileUsernameGet:(NSString *)username {
@@ -191,7 +192,30 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
                    queryParameters:queryParameters
                   headerParameters:headerParameters
                               body:nil
-                     responseClass:[PROFILEProfile class]];
+                     responseClass:[IFFProfile class]];
+}
+
+- (AWSTask *)recommendationRecommendationIdGet:(NSString *)recommendationId authorization:(NSString *)authorization {
+    NSDictionary *headerParameters = @{
+                                       @"Content-Type": @"application/json",
+                                       @"Accept": @"application/json",
+                                       @"Authorization": authorization
+                                       };
+    NSDictionary *queryParameters = @{
+                                      
+                                      };
+    NSDictionary *pathParameters = @{
+                                     @"RecommendationId": recommendationId,
+                                     
+                                     };
+    
+    return [self invokeHTTPRequest:@"GET"
+                         URLString:@"/recommendation/{RecommendationId}"
+                    pathParameters:pathParameters
+                   queryParameters:queryParameters
+                  headerParameters:headerParameters
+                              body:nil
+                     responseClass:[IFFRecommendation class]];
 }
 
 

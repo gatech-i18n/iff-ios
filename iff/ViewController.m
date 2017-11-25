@@ -1,6 +1,6 @@
 #import "ViewController.h"
 
-#import "PROFILEIFFClient.h"
+#import "IFFIFFClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h>
 
 @implementation ViewController
@@ -17,7 +17,7 @@
 }
 
 - (IBAction)handleLogin:(id)sender {
-    self.passwordAuthenticationCompletion.result = [[AWSCognitoIdentityPasswordAuthenticationDetails alloc] initWithUsername:self.userEmailField.text password:self.userPasswordField.text];
+    self.passwordAuthenticationCompletion.result = [[AWSCognitoIdentityPasswordAuthenticationDetails alloc] initWithUsername:self.userNameField.text password:self.userPasswordField.text];
 }
 
 # pragma AWSCognitoIdentityPasswordAuthentication
@@ -26,8 +26,8 @@
 {
     self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (!self.userEmailField.text) {
-            self.userEmailField.text = authenticationInput.lastKnownUsername;
+        if (!self.userNameField.text) {
+            self.userNameField.text = authenticationInput.lastKnownUsername;
         }
     });
 }
@@ -54,11 +54,13 @@
 
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+            AWSCognitoIdentityUserPool *pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
+            AWSCognitoIdentityUser *user = [pool currentUser];
+            IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
             __weak typeof(self) weakSelf = self;
-            [[profileAPI profileUsernameGet:@"test"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+            [[profileAPI profileUsernameGet:user.username] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
                 if (!task.error) {
-                    PROFILEProfile *profile = task.result;
+                    IFFProfile *profile = task.result;
                     if (profile.fullName.length > 0) {
                         [weakSelf dismissViewControllerAnimated:YES completion:nil];
                     }

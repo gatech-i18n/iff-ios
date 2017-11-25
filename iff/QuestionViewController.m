@@ -1,7 +1,7 @@
 #import "QuestionViewController.h"
 
-#import "PROFILEIFFClient.h"
-#import "PROFILEProfile.h"
+#import "IFFIFFClient.h"
+#import "IFFProfile.h"
 
 #import <AWSCore/AWSTask.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
@@ -101,10 +101,11 @@
 }
 
 - (IBAction)submitProfile:(id)sender {
-    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
 
-    _profile.profileId = _userid;
+    _profile.profileId = [self.user username];
     _profile.reason = _introField.text;
+
     [[profileAPI profilePost:[self.session.idToken tokenString] body:_profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             UIAlertController * alert=   [UIAlertController
@@ -134,7 +135,7 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     QuestionViewController *nextVC = (QuestionViewController *)[segue destinationViewController];
     if (!_profile) {
-        _profile = [PROFILEProfile new];
+        _profile = [IFFProfile new];
     }
     if ([segue.identifier isEqualToString:@"addInterests"]) {
         _profile.desiredCountries = @[_selectedCountry1, _selectedCountry2];

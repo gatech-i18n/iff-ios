@@ -17,9 +17,9 @@
                                                                                 credentialsProvider:nil];
     //create a pool
     AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
-                                                              initWithClientId:@"n8drbgi9bsc0cbidielauoe57"
-                                                              clientSecret:@"1m8vpr4t90ihq3g4k9h9mj25q18tn950s45861qbga55qprvu3f4"
-                                                              poolId:@"us-east-1_EFO1NAwjc"];
+                                                              initWithClientId:@"295ssmlg44ssu14rhbars4e6l4"
+                                                              clientSecret:@"6b0pgdorhgjtc2964c5tqdi7sgq0dgmn5rm6hna3kfv7fsh1uaq"
+                                                              poolId:@"us-east-1_qcEjvA6lL"];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = serviceConfiguration;
     [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration
                                                            userPoolConfiguration:configuration
@@ -29,13 +29,7 @@
     self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     pool.delegate = self;
-    
-    
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor whiteColor];
-    
+
     return YES;
 }
 

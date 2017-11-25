@@ -16,5 +16,8 @@
 @property (strong, nonatomic) NSString *penalty;
 @property (strong, nonatomic) IBOutlet UIView *namecard;
 @property (strong, nonatomic) IBOutlet UIView *buttonView;
+@property (strong, nonatomic) IBOutlet UILabel *nameLabel;
+@property (strong, nonatomic) IBOutlet UILabel *homeCountryLabel;
+@property (strong, nonatomic) IBOutlet UILabel *descriptionLabel;
 
 @end

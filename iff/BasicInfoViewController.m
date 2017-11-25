@@ -8,7 +8,7 @@
 
 #import "BasicInfoViewController.h"
 
-#import "PROFILEProfile.h"
+#import "IFFProfile.h"
 #import "QuestionViewController.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUserPool.h>
@@ -39,8 +39,8 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"question"]) {
         QuestionViewController *vc = (QuestionViewController *)[segue destinationViewController];
-        PROFILEProfile *profile = [PROFILEProfile new];
-        profile.fullName = [_firstName.text stringByAppendingString:_lastName.text];
+        IFFProfile *profile = [IFFProfile new];
+        profile.fullName = [_firstName.text stringByAppendingString:[@" " stringByAppendingString:_lastName.text]];
         profile.homeCountry = _country.text;
         profile.gender = _female.selectedButton.titleLabel.text;
         vc.profile = profile;

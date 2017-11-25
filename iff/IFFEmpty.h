@@ -18,27 +18,6 @@
 #import <AWSCore/AWSCore.h>
 
  
-@interface PROFILEProfile : AWSModel
-
-@property (nonatomic, strong, nullable) NSString *profileId;
-
-
-@property (nonatomic, strong, nullable) NSString *fullName;
-
-
-@property (nonatomic, strong, nullable) NSString *gender;
-
-
-@property (nonatomic, strong, nullable) NSString *homeCountry;
-
-
-@property (nonatomic, strong, nullable) NSString *reason;
-
-
-@property (nonatomic, strong, nullable) NSArray *desiredCountries;
-
-
-@property (nonatomic, strong, nullable) NSArray *interests;
-
+@interface IFFEmpty : AWSModel
 
 @end

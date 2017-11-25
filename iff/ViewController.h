@@ -4,7 +4,7 @@
 
 @interface ViewController : UIViewController<AWSCognitoIdentityPasswordAuthentication>
 
-@property (strong, nonatomic) IBOutlet UITextField *userEmailField; 
+@property (strong, nonatomic) IBOutlet UITextField *userNameField;
 
 @property (strong, nonatomic) IBOutlet UITextField *userPasswordField;
 

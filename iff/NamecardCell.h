@@ -1,5 +1,7 @@
 #import <UIKit/UIKit.h>
 
+@class IFFProfile;
+
 @interface NamecardCell : UIView
 
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
@@ -16,6 +18,8 @@
 
 @property (weak, nonatomic) NSString *accepted;
 
--(NamecardCell *)initWithUsername:(NSString *)userName;
+- (NamecardCell *)initWithProfile:(IFFProfile *)userProfile;
+
+- (void)configureDetails:(IFFProfile *)profile;
 
 @end

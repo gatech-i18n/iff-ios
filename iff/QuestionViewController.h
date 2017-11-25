@@ -10,7 +10,7 @@
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityUser.h>
 
-@class PROFILEProfile;
+@class IFFProfile;
 
 @interface QuestionViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextViewDelegate>
 
@@ -22,7 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIPickerView *countryPicker1;
 @property (weak, nonatomic) IBOutlet UIPickerView *countryPicker2;
 
-@property (strong, nonatomic) PROFILEProfile *profile;
+@property (strong, nonatomic) IFFProfile *profile;
 @property (strong, nonatomic) IBOutlet UITextView *interestField;
 @property (strong, nonatomic) IBOutlet UITextView *introField;
 

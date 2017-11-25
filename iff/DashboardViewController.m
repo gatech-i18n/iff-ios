@@ -9,16 +9,21 @@
 #import "DashboardViewController.h"
 
 #import "NamecardCell.h"
-#import "PROFILEProfile.h"
-#import "PROFILEIFFClient.h"
+#import "IFFIFFClient.h"
+#import "IFFProfile.h"
+#import "IFFRecommendation.h"
 #import "ProfileViewController.h"
 
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @interface DashboardViewController ()
-@property (nonatomic,strong) AWSCognitoIdentityUserGetDetailsResponse * response;
-@property (nonatomic, strong) AWSCognitoIdentityUser * user;
-@property (nonatomic, strong) AWSCognitoIdentityUserPool * pool;
+@property (nonatomic,strong) AWSCognitoIdentityUserGetDetailsResponse *response;
+@property (nonatomic, strong) AWSCognitoIdentityUser *user;
+@property (nonatomic, strong) AWSCognitoIdentityUserPool *pool;
+@property (nonatomic, strong) AWSCognitoIdentityUserSession *session;
+@property (nonatomic, strong) IFFProfile *recommendationProfile;
+@property (nonatomic, strong) UIImageView *bubbleView;
+
 @end
 
 @implementation DashboardViewController
@@ -31,22 +36,37 @@
     if (!self.user) {
         self.user = [self.pool currentUser];
     }
-    self.recommendedUsername = @"abc123";
+    [[self.user getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if (task.error) {
+            NSLog(@"%@", task.error);
+        } else {
+            self.session = task.result;
+        }
+        return nil;
+    }];
+    [self.namecard removeFromSuperview];
+    [self isLoading];
+    [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(configureView) userInfo:nil repeats:YES];
+
     [self refresh];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    [super viewWillAppear:animated];
-    self.recommendedUsername = @"abc123";
-    [self.navigationController setToolbarHidden:YES];
-    [self configureView];
+- (void) isLoading {
+    UIActivityIndicatorView *loading = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loading.center = self.view.center;
+    [loading startAnimating];
+    [self.view addSubview:loading];
 }
 
 - (void) configureView {
+
     if (!_recommendedUsername || _penalty) {
-        [self.namecard setHidden:YES];
         [self configureBubble];
+    } else {
+        [self.bubbleView removeFromSuperview];
+        [self getRecommendationProfile];
     }
+    [self.view reloadInputViews];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -64,7 +84,7 @@
         
 //        PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
         ProfileViewController *profileVC = (ProfileViewController *)[segue destinationViewController];
-        profileVC.profileUsername = @"test2";
+        profileVC.profileUsername = _recommendedUsername;
 //        [[profileAPI profileUsernameGet:@"abc123"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
 //            if (task.error) {
 //                UIAlertController * alert=   [UIAlertController
@@ -95,7 +115,7 @@
 }
 
 - (void)refresh {
-    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+    [[self.user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (task.error) {
@@ -105,7 +125,10 @@
                 }
                 [self.navigationController setToolbarHidden:YES];
             } else {
-                self.response = task.result;
+                self.session = task.result;
+                if ([self.user.username isEqualToString:@"iwannabxm"]) {
+                    [self getRecommendation:@"test_id"];
+                }
                 [self.view reloadInputViews];
                 [self.navigationController setToolbarHidden:NO];
             }
@@ -182,16 +205,58 @@
         notice = @"You have to wait for 3 days before we search for another match...";
     }
     
-    UIImage *bubbleIMG = [UIImage imageNamed:@"bubble2"];
-    UIImageView *bubble = [[UIImageView alloc] initWithImage:bubbleIMG];
-    CGRect myFrame = CGRectMake(0, 150, 375, 310);
-    [bubble setFrame:myFrame];
-    [self.view addSubview:bubble];
-    
-    UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 210, 179, 95)];
-    noticeLabel.text = notice;
-    noticeLabel.numberOfLines = 3;
-    [self.view addSubview:noticeLabel];
+    if (!self.bubbleView) {
+        UIImage *bubbleIMG = [UIImage imageNamed:@"bubble2"];
+        UIImageView *bubble = [[UIImageView alloc] initWithImage:bubbleIMG];
+        CGRect myFrame = CGRectMake(0, 150, 375, 310);
+        [bubble setFrame:myFrame];
+        [self.view addSubview:bubble];
+        
+        UILabel *noticeLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 60, 179, 95)];
+        noticeLabel.text = notice;
+        noticeLabel.numberOfLines = 3;
+        [bubble addSubview:noticeLabel];
+        self.bubbleView = bubble;
+    }
+}
+
+- (void)getRecommendation:(NSString *)recommendationID {
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
+    [[profileAPI recommendationRecommendationIdGet:recommendationID authorization:[self.session.idToken tokenString]] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            _recommendedUsername = [(IFFRecommendation *)task.result userId2];
+        }
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (!task.error) {
+//                _recommendedUsername = [(IFFRecommendation *)task.result userId2];
+//                [self getRecommendationProfile];
+//            }
+//        });
+        return nil;
+    }];
+}
+
+- (void)getRecommendationProfile {
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
+//    __weak typeof(self) weakSelf = self;
+    [[profileAPI profileUsernameGet:self.recommendedUsername] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (!task.error) {
+                self.recommendationProfile = task.result;
+                [self configureDetails:self.recommendationProfile];
+                [self.view addSubview:self.namecard];
+            }
+        });
+
+        return nil;
+    }];
+}
+
+- (void)configureDetails:(IFFProfile *)profile
+{
+    self.nameLabel.text = profile.fullName;
+    self.homeCountryLabel.text = profile.homeCountry;
+    self.descriptionLabel.text = profile.reason;
 }
 
 @end

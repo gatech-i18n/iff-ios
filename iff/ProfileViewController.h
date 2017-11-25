@@ -1,6 +1,6 @@
 #import <UIKit/UIKit.h>
 
-#import "PROFILEProfile.h"
+#import "IFFProfile.h"
 
 @class AWSCognitoIdentityUser;
 @class AWSCognitoIdentityUserPool;
@@ -23,5 +23,5 @@
 @property (weak, nonatomic) IBOutlet UILabel *country2;
 @property (weak, nonatomic) IBOutlet UIImageView *gender;
 
-- (void)configureProfile:(PROFILEProfile *)profile;
+- (void)configureProfile:(IFFProfile *)profile;
 @end

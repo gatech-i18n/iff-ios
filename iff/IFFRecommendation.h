@@ -14,20 +14,28 @@
  */
  
 
-#import "PROFILEProfile.h"
+#import <Foundation/Foundation.h>
+#import <AWSCore/AWSCore.h>
 
-@implementation PROFILEProfile
+ 
+@interface IFFRecommendation : AWSModel
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-    return @{
-             @"profileId": @"ProfileId",
-             @"fullName": @"FullName",
-             @"gender": @"Gender",
-             @"homeCountry": @"HomeCountry",
-             @"reason": @"Reason",
-             @"desiredCountries": @"DesiredCountries",
-             @"interests": @"Interests"
-             };
-}
+@property (nonatomic, strong, nullable) NSString *recommendationId;
+
+
+@property (nonatomic, strong, nullable) NSString *userId1;
+
+
+@property (nonatomic, strong, nullable) NSString *userId2;
+
+
+@property (nonatomic, strong, nullable) NSString *status;
+
+
+@property (nonatomic, strong, nullable) NSString *reason;
+
+
+@property (nonatomic, strong, nullable) NSString *createdDate;
+
 
 @end
