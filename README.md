@@ -1,4 +1,4 @@
-# iff-ios
+# IFF Connect
 
 ## __Install Guide IFF Connect 1.0__
 
@@ -7,7 +7,7 @@
 
 ### DEPENDENCIES
 	Install  and configure Cocoapods on mac
-		* Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
+		* Installation Guide <https://guides.cocoapods.org/using/getting-started.html#toc_3>
 		* How to configure https://guides.cocoapods.org/using/using-cocoapods.html
 
 ### DOWNLOAD
