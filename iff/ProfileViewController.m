@@ -1,13 +1,12 @@
 
 #import "ProfileViewController.h"
 
-#import "PROFILEIFFClient.h"
+#import "IFFIFFClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
 
 @interface ProfileViewController ()
 
-@property (nonatomic, strong) PROFILEProfile *profile;
-@property (nonatomic, strong) NSString *userid;
+@property (nonatomic, strong) IFFProfile *profile;
 
 @end
 
@@ -16,46 +15,14 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    __weak typeof(self) weakSelf = self;
-    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
-        if (task.error) {
-            NSLog(@"%@", task.error);
-        } else {
-            [[task.result userAttributes] enumerateObjectsUsingBlock:^(AWSCognitoIdentityProviderAttributeType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([obj.name isEqualToString:@"custom:userid"]) {
-                    self.userid = obj.value;
-                    *stop = YES;
-                }
-            }];
-            [weakSelf loadProfile];
-        }
-        return nil;
-    }];
+
     self.pool = [AWSCognitoIdentityUserPool CognitoIdentityUserPoolForKey:@"UserPool"];
-    if (!self.user) {
-        self.user = [self.pool currentUser];
-    }
-   
+    self.user = [self.pool currentUser];
+    [self loadProfile];
 }
 
-- (void) viewWillAppear:(BOOL)animated {
-    __weak typeof(self) weakSelf = self;
-    [[self.user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
-        if (task.error) {
-            NSLog(@"%@", task.error);
-        } else {
-            [[task.result userAttributes] enumerateObjectsUsingBlock:^(AWSCognitoIdentityProviderAttributeType * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
-                if ([obj.name isEqualToString:@"custom:userid"]) {
-                    self.userid = obj.value;
-                    *stop = YES;
-                }
-            }];
-            [weakSelf loadProfile];
-        }
-        return nil;
-    }];
-    
-    
+- (void)viewWillAppear:(BOOL)animated {
+    self.user = [self.pool currentUser];
 }
 
 - (void) viewWillDisappear:(BOOL)animated {
@@ -69,8 +36,8 @@
 }
 
 - (void)loadProfile {
-    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
-    _profileUsername = _profileUsername == nil ? self.userid : _profileUsername;
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
+    _profileUsername = _profileUsername == nil ? self.user.username : _profileUsername;
     __weak typeof(self) weakSelf = self;
     [[profileAPI profileUsernameGet:_profileUsername] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
@@ -101,7 +68,7 @@
     
 }
 
-- (void)configureProfile:(PROFILEProfile *)profile {
+- (void)configureProfile:(IFFProfile *)profile {
     _profileName.text = profile.fullName;
     _homeCountry.text = profile.homeCountry;
     _reason.text = profile.reason;

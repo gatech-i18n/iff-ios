@@ -17,9 +17,9 @@
                                                                                 credentialsProvider:nil];
     //create a pool
     AWSCognitoIdentityUserPoolConfiguration *configuration = [[AWSCognitoIdentityUserPoolConfiguration alloc]
-                                                              initWithClientId:@"n8drbgi9bsc0cbidielauoe57"
-                                                              clientSecret:@"1m8vpr4t90ihq3g4k9h9mj25q18tn950s45861qbga55qprvu3f4"
-                                                              poolId:@"us-east-1_EFO1NAwjc"];
+                                                              initWithClientId:@"2e3gfuk0gabq3kae9rqjp13ksi"
+                                                              clientSecret:@"18toh18vdoae9tclgaqtajqjdfpqf3ffrt0f8aot8upc66qiif4c"
+                                                              poolId:@"us-east-1_qcEjvA6lL"];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = serviceConfiguration;
     [AWSCognitoIdentityUserPool registerCognitoIdentityUserPoolWithConfiguration:serviceConfiguration
                                                            userPoolConfiguration:configuration
@@ -29,13 +29,7 @@
     self.storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     pool.delegate = self;
-    
-    
-    UIPageControl *pageControl = [UIPageControl appearance];
-    pageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
-    pageControl.currentPageIndicatorTintColor = [UIColor blackColor];
-    pageControl.backgroundColor = [UIColor whiteColor];
-    
+
     return YES;
 }
 
@@ -82,9 +76,17 @@
         
         //display login screen if it isn't already visibile
         if (!(self.navigationController.isViewLoaded && self.navigationController.view.window))  {
-            [self.window.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
+            if ([UIApplication sharedApplication].delegate.window.rootViewController.presentedViewController == nil) {
+                            [self.window.rootViewController presentViewController:self.navigationController animated:YES completion:nil];
+            }
+
         }
     });
+    
+//    id<AWSCognitoIdentityPasswordAuthentication> signinVC = self.signInViewController;
+//    self.signInViewController = nil;
+//    self.navigationController = nil;
+//    return signinVC;
     return (id<AWSCognitoIdentityPasswordAuthentication>)self.signInViewController;
 }
 

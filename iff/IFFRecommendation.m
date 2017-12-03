@@ -14,13 +14,18 @@
  */
  
 
-#import "PROFILEEmpty.h"
+#import "IFFRecommendation.h"
 
-@implementation PROFILEEmpty
+@implementation IFFRecommendation
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-
+             @"recommendationId": @"RecommendationId",
+             @"userId1": @"UserId1",
+             @"userId2": @"UserId2",
+             @"status": @"Status",
+             @"reason": @"Reason",
+             @"createdDate": @"CreatedDate"
              };
 }
 

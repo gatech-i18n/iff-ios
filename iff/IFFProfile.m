@@ -14,10 +14,20 @@
  */
  
 
-#import <Foundation/Foundation.h>
-#import <AWSCore/AWSCore.h>
+#import "IFFProfile.h"
 
- 
-@interface PROFILEEmpty : AWSModel
+@implementation IFFProfile
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+    return @{
+             @"profileId": @"ProfileId",
+             @"fullName": @"FullName",
+             @"gender": @"Gender",
+             @"homeCountry": @"HomeCountry",
+             @"reason": @"Reason",
+             @"desiredCountries": @"DesiredCountries",
+             @"interests": @"Interests"
+             };
+}
 
 @end

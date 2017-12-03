@@ -1,9 +1,11 @@
 #import "ViewController.h"
 
-#import "PROFILEIFFClient.h"
+#import "IFFIFFClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProviderService.h>
 
-@implementation ViewController
+@implementation ViewController {
+    BOOL _hasProfile;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -17,7 +19,18 @@
 }
 
 - (IBAction)handleLogin:(id)sender {
-    self.passwordAuthenticationCompletion.result = [[AWSCognitoIdentityPasswordAuthenticationDetails alloc] initWithUsername:self.userEmailField.text password:self.userPasswordField.text];
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
+    [[profileAPI profileUsernameGet:self.userNameField.text] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        if (!task.error) {
+            IFFProfile *profile = task.result;
+            if (profile.fullName.length > 0) {
+                _hasProfile = YES;
+            }
+        }
+        return nil;
+    }];
+    self.passwordAuthenticationCompletion.result = [[AWSCognitoIdentityPasswordAuthenticationDetails alloc] initWithUsername:self.userNameField.text password:self.userPasswordField.text];
+    
 }
 
 # pragma AWSCognitoIdentityPasswordAuthentication
@@ -26,8 +39,8 @@
 {
     self.passwordAuthenticationCompletion = passwordAuthenticationCompletionSource;
     dispatch_async(dispatch_get_main_queue(), ^{
-        if (!self.userEmailField.text) {
-            self.userEmailField.text = authenticationInput.lastKnownUsername;
+        if (!self.userNameField.text) {
+            self.userNameField.text = authenticationInput.lastKnownUsername;
         }
     });
 }
@@ -54,18 +67,11 @@
 
             [self presentViewController:alert animated:YES completion:nil];
         } else {
-            PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
-            __weak typeof(self) weakSelf = self;
-            [[profileAPI profileUsernameGet:@"test"] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-                if (!task.error) {
-                    PROFILEProfile *profile = task.result;
-                    if (profile.fullName.length > 0) {
-                        [weakSelf dismissViewControllerAnimated:YES completion:nil];
-                    }
-                }
-                return nil;
-            }];
-            [self performSegueWithIdentifier:@"AddInfo" sender:nil];
+            if (_hasProfile) {
+                [self dismissViewControllerAnimated:YES completion:nil];
+            } else {
+                [self performSegueWithIdentifier:@"AddInfo" sender:nil];
+            }
         }
     });
 }

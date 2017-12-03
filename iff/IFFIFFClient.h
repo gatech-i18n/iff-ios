@@ -17,8 +17,9 @@
 #import <Foundation/Foundation.h>
 #import <AWSAPIGateway/AWSAPIGateway.h>
 
-#import "PROFILEEmpty.h"
-#import "PROFILEProfile.h"
+#import "IFFProfile.h"
+#import "IFFEmpty.h"
+#import "IFFRecommendation.h"
 
 
 NS_ASSUME_NONNULL_BEGIN
@@ -26,7 +27,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The service client object.
  */
-@interface PROFILEIFFClient: AWSAPIGatewayClient
+@interface IFFIFFClient: AWSAPIGatewayClient
 
 /**
  Returns the singleton service client. If the singleton object does not exist, the SDK instantiates the default service client with `defaultServiceConfiguration` from `[AWSServiceManager defaultServiceManager]`. The reference to this object is maintained by the SDK, and you do not need to retain it manually.
@@ -59,13 +60,13 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = PROFILEIFFClient.defaultClient()
+     let serviceClient = IFFIFFClient.defaultClient()
 
  *Objective-C*
 
-     PROFILEIFFClient *serviceClient = [PROFILEIFFClient defaultClient];
+     IFFIFFClient *serviceClient = [IFFIFFClient defaultClient];
 
- Alternatively, this configuration could also be set in the `info.plist` file of your app under `AWS` dictionary with a configuration dictionary by name `PROFILEIFFClient`.
+ Alternatively, this configuration could also be set in the `info.plist` file of your app under `AWS` dictionary with a configuration dictionary by name `IFFIFFClient`.
 
  @return The default service client.
  */
@@ -81,7 +82,7 @@ NS_ASSUME_NONNULL_BEGIN
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         PROFILEIFFClient.registerClientWithConfiguration(configuration, forKey: "USWest2PROFILEIFFClient")
+         IFFIFFClient.registerClientWithConfiguration(configuration, forKey: "USWest2IFFIFFClient")
 
          return true
      }
@@ -94,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [PROFILEIFFClient registerClientWithConfiguration:configuration forKey:@"USWest2PROFILEIFFClient"];
+         [IFFIFFClient registerClientWithConfiguration:configuration forKey:@"USWest2IFFIFFClient"];
 
          return YES;
      }
@@ -103,11 +104,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = PROFILEIFFClient(forKey: "USWest2PROFILEIFFClient")
+     let serviceClient = IFFIFFClient(forKey: "USWest2IFFIFFClient")
 
  *Objective-C*
 
-     PROFILEIFFClient *serviceClient = [PROFILEIFFClient clientForKey:@"USWest2PROFILEIFFClient"];
+     IFFIFFClient *serviceClient = [IFFIFFClient clientForKey:@"USWest2IFFIFFClient"];
 
  @warning After calling this method, do not modify the configuration object. It may cause unspecified behaviors.
 
@@ -126,7 +127,7 @@ NS_ASSUME_NONNULL_BEGIN
      func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
          let credentialProvider = AWSCognitoCredentialsProvider(regionType: .USEast1, identityPoolId: "YourIdentityPoolId")
          let configuration = AWSServiceConfiguration(region: .USWest2, credentialsProvider: credentialProvider)
-         PROFILEIFFClient.registerClientWithConfiguration(configuration, forKey: "USWest2PROFILEIFFClient")
+         IFFIFFClient.registerClientWithConfiguration(configuration, forKey: "USWest2IFFIFFClient")
 
          return true
      }
@@ -139,7 +140,7 @@ NS_ASSUME_NONNULL_BEGIN
          AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
                                                                               credentialsProvider:credentialsProvider];
 
-         [PROFILEIFFClient registerClientWithConfiguration:configuration forKey:@"USWest2PROFILEIFFClient"];
+         [IFFIFFClient registerClientWithConfiguration:configuration forKey:@"USWest2IFFIFFClient"];
 
          return YES;
      }
@@ -148,11 +149,11 @@ NS_ASSUME_NONNULL_BEGIN
 
  *Swift*
 
-     let serviceClient = PROFILEIFFClient(forKey: "USWest2PROFILEIFFClient")
+     let serviceClient = IFFIFFClient(forKey: "USWest2IFFIFFClient")
 
  *Objective-C*
 
-     PROFILEIFFClient *serviceClient = [PROFILEIFFClient clientForKey:@"USWest2PROFILEIFFClient"];
+     IFFIFFClient *serviceClient = [IFFIFFClient clientForKey:@"USWest2IFFIFFClient"];
 
  @param key A string to identify the service client.
 
@@ -175,18 +176,28 @@ NS_ASSUME_NONNULL_BEGIN
  @param authorization 
  @param body 
  
- return type: PROFILEEmpty *
+ return type: IFFEmpty *
  */
-- (AWSTask *)profilePost:( NSString *)authorization body:( PROFILEProfile *)body;
+- (AWSTask *)profilePost:( NSString *)authorization body:( IFFProfile *)body;
 
 /**
  
  
  @param username 
  
- return type: PROFILEProfile *
+ return type: IFFProfile *
  */
 - (AWSTask *)profileUsernameGet:( NSString *)username;
+
+/**
+ 
+ 
+ @param recommendationId 
+ @param authorization 
+ 
+ return type: IFFRecommendation *
+ */
+- (AWSTask *)recommendationRecommendationIdGet:( NSString *)recommendationId authorization:( NSString *)authorization;
 
 @end
 

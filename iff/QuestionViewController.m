@@ -1,7 +1,8 @@
 #import "QuestionViewController.h"
 
-#import "PROFILEIFFClient.h"
-#import "PROFILEProfile.h"
+#import "DLRadioButton.h"
+#import "IFFIFFClient.h"
+#import "IFFProfile.h"
 
 #import <AWSCore/AWSTask.h>
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
@@ -101,10 +102,10 @@
 }
 
 - (IBAction)submitProfile:(id)sender {
-    PROFILEIFFClient *profileAPI = [PROFILEIFFClient defaultClient];
+    IFFIFFClient *profileAPI = [IFFIFFClient defaultClient];
 
-    _profile.profileId = _userid;
-    _profile.reason = _introField.text;
+    _profile.profileId = [self.user username];
+
     [[profileAPI profilePost:[self.session.idToken tokenString] body:_profile] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             UIAlertController * alert=   [UIAlertController
@@ -134,14 +135,14 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     QuestionViewController *nextVC = (QuestionViewController *)[segue destinationViewController];
     if (!_profile) {
-        _profile = [PROFILEProfile new];
+        _profile = [IFFProfile new];
     }
     if ([segue.identifier isEqualToString:@"addInterests"]) {
         _profile.desiredCountries = @[_selectedCountry1, _selectedCountry2];
     } else if ([segue.identifier isEqualToString:@"chooseReason"]) {
         _profile.interests = [_interestField.text componentsSeparatedByString:@","];
     } else if ([segue.identifier isEqualToString:@"introduction"]) {
-        _profile.reason = @"";
+        _profile.reason = [@"I want to " stringByAppendingString:_reasonButton.selectedButton.titleLabel.text] ;
     }
     nextVC.profile = _profile;
 }

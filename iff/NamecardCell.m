@@ -1,22 +1,26 @@
 #import "NamecardCell.h"
 
+#import "IFFProfile.h"
+
 @implementation NamecardCell
 
--(NamecardCell *)initWithUsername:(NSString *)userName {
+- (NamecardCell *)initWithProfile:(IFFProfile *)userProfile {
     self = [super init];
     if (self) {
-        _nameLabel.text = @"userName";
+        _nameLabel.text = userProfile.fullName;
+        _countryLabel.text = userProfile.homeCountry;
+        _descriptionLabel.text = userProfile.reason;
     }
     return self;
 }
 
--(void)layoutSubviews
+- (void)layoutSubviews
 {
     [self cardSetup];
     [self imageSetup];
 }
 
--(void)cardSetup
+- (void)cardSetup
 {
     [self.cardView setAlpha:1];
     self.cardView.layer.masksToBounds = NO;
@@ -38,13 +42,21 @@
     
 }
 
--(void)imageSetup
+- (void)imageSetup
 {
     _profileImage.layer.cornerRadius = _profileImage.frame.size.width/2;
     _profileImage.clipsToBounds = YES;
     _profileImage.contentMode = UIViewContentModeScaleAspectFit;
     _profileImage.backgroundColor = [UIColor whiteColor];
 }
+
+- (void)configureDetails:(IFFProfile *)profile
+{
+    self.nameLabel.text = profile.fullName;
+    self.countryLabel.text = profile.homeCountry;
+    self.descriptionLabel.text = profile.reason;
+}
+
 
 @end
 

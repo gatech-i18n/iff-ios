@@ -23,7 +23,7 @@
     if ([@"Confirm" isEqualToString:segue.identifier]) {
         ConfirmRegistrationViewController *confirmVC = segue.destinationViewController;
         confirmVC.sentTo = self.sentTo;
-        confirmVC.user = [self.pool getUser:self.userEmailField.text];
+        confirmVC.user = [self.pool getUser:self.usernameField.text];
     }
 }
 
@@ -35,16 +35,11 @@
     AWSCognitoIdentityUserAttributeType *email = [AWSCognitoIdentityUserAttributeType new];
     email.name = @"email";
     email.value = _userEmailField.text;
-    
-    AWSCognitoIdentityUserAttributeType *userid = [AWSCognitoIdentityUserAttributeType new];
-    userid.name = @"custom:userid";
-    userid.value = [[NSUUID UUID] UUIDString];
 
     [attributes addObject:email];
-    [attributes addObject:userid];
 
     //sign up the user
-    [[self.pool signUp:self.userEmailField.text
+    [[self.pool signUp:self.usernameField.text
               password:self.userPassword.text
         userAttributes:attributes
         validationData:nil]
