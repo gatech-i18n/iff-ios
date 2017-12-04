@@ -41,14 +41,6 @@
                     
                     [self presentViewController:alert animated:YES completion:nil];
             } else {
-//                [[self. user getSession:_username password:_password validationData:nil] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
-//                    if (task.error) {
-//                        NSLog(@"%@", task.error);
-//                    } else {
-//                        [self performSegueWithIdentifier:@"BuildProfile" sender:task.result];
-//                    }
-//                    return nil;
-//                }];
 
                 UIAlertController * alert= [UIAlertController
                                             alertControllerWithTitle:@"You have finished!"

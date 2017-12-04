@@ -63,11 +63,7 @@
 }
 
 - (void) configureView {
-    if ([self.user.username isEqualToString:@"haha233"]) {
-        [self getRecommendation:@"test_id"];
-    } else {
-        [self getRecommendation:@"none"];
-    }
+
     if (_hasFetched) {
         if (!_recommendedUsername || _penalty) {
             [self configureBubble];
@@ -109,9 +105,7 @@
                 [self.navigationController setToolbarHidden:YES];
             } else {
                 self.session = task.result;
-                if ([self.user.username isEqualToString:@"haha233"]) {
-                    [self getRecommendation:@"test_id"];
-                }
+
                 [self.view reloadInputViews];
                 [self.navigationController setToolbarHidden:NO];
             }
@@ -214,12 +208,7 @@
                     _recommendedUsername = userid2;
                 }
             }
-    //        dispatch_async(dispatch_get_main_queue(), ^{
-    //            if (!task.error) {
-    //                _recommendedUsername = [(IFFRecommendation *)task.result userId2];
-    //                [self getRecommendationProfile];
-    //            }
-    //        });
+
             return nil;
         }];
     }

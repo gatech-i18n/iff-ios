@@ -30,9 +30,7 @@
         }
         return nil;
     }];
-    if ([self.user.username isEqualToString:@"iwannabxm"]) {
-        [self getRecommendationByID:@"test_id"];
-    }
+
     [NSTimer scheduledTimerWithTimeInterval:2.0 target:self selector:@selector(configureChat) userInfo:nil repeats:YES];
 
 }
@@ -52,9 +50,7 @@
 }
 
 - (void)configureChat {
-    if ([self.user.username isEqualToString:@"haha233"]) {
-        [self getRecommendationByID:@"test_id"];
-    }
+
     if (self.recommendedUsername) {
         [self getRecommendationProfile];
     }
