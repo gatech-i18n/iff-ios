@@ -29,18 +29,18 @@
 
 #### PREREQUISITES
 
-	You must have Xcode 9.0+ installed and configured before proceeding, see https://developer.apple.com/xcode/ for more information
+	You must have Xcode 9.0+ installed and configured before proceeding
+				see https://developer.apple.com/xcode/ for more information
 
 #### DEPENDENCIES
 
 	Install  and configure Cocoapods on mac
-		* Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
-		* How to configure https://guides.cocoapods.org/using/using-cocoapods.html
+			Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
+			How to configure https://guides.cocoapods.org/using/using-cocoapods.html
 
 #### DOWNLOAD
 
-	https://github.com/
-	gatech-i18n/iff-ios/download_zip
+	https://github.com/gatech-i18n/iff-ios/download_zip
 
 #### BUILD
 
@@ -57,4 +57,4 @@
 #### TROUBLESHOOTING
 
 	Any warning shown during the build can be properly ignored.
-	For any crashes or questions, feel free to [open an issue](https://github.com/gatech-i18n/iff-ios/issues/new/).
+	For any crashes or questions, feel free to open an issue: https://github.com/gatech-i18n/iff-ios/issues/new/
