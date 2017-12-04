@@ -1,5 +1,30 @@
 # IFF Connect
 
+
+
+## __Release Notes version IFF Connect 1.0__
+
+#### NEW FEATURES
+
+	Updated the questions in profile building pages
+	Added accept and reject buttons on namecard shown in dashboard page
+	Updated the profile view UI
+
+#### BUG FIXES
+
+	The matching status on dashboard page is configured correctly for each user
+	The name of the chat is displayed correctly depending on the user’s matching status
+
+#### KNOWN BUGS
+
+	Logging in to dashboard page sometimes leads to settings section
+	Displaying interests as tags with prompts is missing
+	Chat functionality accessible through profile view and chat section is missing
+
+
+
+
+
 ## __Install Guide IFF Connect 1.0__
 
 #### PREREQUISITES
