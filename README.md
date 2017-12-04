@@ -39,7 +39,8 @@
 
 #### DOWNLOAD
 
-	https://github.com/gatech-i18n/iff-ios/download_zip
+	https://github.com/
+	gatech-i18n/iff-ios/download_zip
 
 #### BUILD
 
@@ -56,4 +57,4 @@
 #### TROUBLESHOOTING
 
 	Any warning shown during the build can be properly ignored.
-	For any crashes or questions, feel free to [open an issue](https://github.com/gatech-i18n/iff-ios/issues/new).
+	For any crashes or questions, feel free to [open an issue](https://github.com/gatech-i18n/iff-ios/issues/new/).
