@@ -30,13 +30,13 @@
 #### PREREQUISITES
 
 	You must have Xcode 9.0+ installed and configured before proceeding
-				see https://developer.apple.com/xcode/ for more information
+	See https://developer.apple.com/xcode/ for more information
 
 #### DEPENDENCIES
 
 	Install  and configure Cocoapods on mac
-			Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
-			How to configure https://guides.cocoapods.org/using/using-cocoapods.html
+	Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
+	How to configure https://guides.cocoapods.org/using/using-cocoapods.html
 
 #### DOWNLOAD
 
