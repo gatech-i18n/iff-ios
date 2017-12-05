@@ -57,7 +57,7 @@
 
 	Go to the directory where you unzipped the files into.
 	Doulbe click on iff.workspace to launch the application in Xcode.
-	Select 'Build' to run the app on simulator.
+	Select 'Build' to run the app in simulator.
 
 #### TROUBLESHOOTING
 
