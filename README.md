@@ -29,22 +29,25 @@
 
 #### PREREQUISITES
 
-	You must have Xcode 9.0+ installed and configured before proceeding
-	See https://developer.apple.com/xcode/ for more information
+	You must use a computer that runs macOS.
+	You must have Xcode 9.0+ installed and configured before proceeding.
+	You can install Xcode from the App Store.
+	See https://developer.apple.com/xcode/ for more information.
 
 #### DEPENDENCIES
 
-	Install  and configure Cocoapods on mac
+	Install and configure Cocoapods on mac.
 	Installation Guide https://guides.cocoapods.org/using/getting-started.html#toc_3
 	How to configure https://guides.cocoapods.org/using/using-cocoapods.html
 
 #### DOWNLOAD
 
-	https://github.com/gatech-i18n/iff-ios/download_zip
+	Download our code at https://github.com/gatech-i18n/iff-ios/archive/master.zip
+	Unzip the files into a directory of your preference.
 
 #### BUILD
 
-	No build necessary for this app. Download_zip contains an executable xcode file.
+	No build necessary for this app. The downloaded zip file contains an executable Xcode file.
 
 #### INSTALLATION
 
@@ -52,7 +55,9 @@
 
 #### RUNNING APPLICATION
 
-	Launch iff.workspace in extracted download_zip folder. Select build to run the app on simulator.
+	Go to the directory where you unzipped the files into.
+	Doulbe click on iff.workspace to launch the application in Xcode.
+	Select 'Build' to run the app on simulator.
 
 #### TROUBLESHOOTING
 
